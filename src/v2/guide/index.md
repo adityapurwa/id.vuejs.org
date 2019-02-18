@@ -6,7 +6,7 @@ order: 2
 
 ## Apa itu Vue.js?
 
-Vue (diucapkan /vjuː/, seperti **view**) adalah sebuah **framework progressive** untuk membangun antar muka pengguna. Tidak seperti framework monolitik, Vue didesain untuk bisa diadopsi secara bertahap. Untuk Library utama fokus hanya pada layer view, dan mudah untuk mengambil dan mengintegrasikannya dengan library lain atau proyek yang sudah ada. Di sisi lain, Vue juga memiliki kapabilitas yang hebat dan mumpuni untuk menerapkan Aplikasi Single-Page (SPA) saat dikombinasikan dengan [peralatan modern](single-file-components.html) dan [library pendukung](https://github.com/vuejs/awesome-vue#components--libraries).
+Vue (diucapkan /vjuː/, seperti **view**) adalah sebuah **framework progresif** untuk membangun antar muka pengguna. Tidak seperti framework monolitik, Vue didesain untuk bisa diadopsi secara bertahap. Vue hanya fokus pada lapisan view, dan mudah untuk diintegrasikan dengan library lain atau proyek yang sudah ada. Di sisi lain, Vue juga memiliki kapabilitas yang mumpuni untuk menerapkan Aplikasi Satu Halaman (Single Page Application / SPA) saat dikombinasikan dengan [peralatan modern](single-file-components.html) dan [library pendukung](https://github.com/vuejs/awesome-vue#components--libraries).
 
 Jika Anda tertarik mempelajari sebelum terjun untuk mendalaminya, kami telah <a id="modal-player"  href="#">membuat video</a> yang akan memandu menggunakan prinsip dasar beserta contoh proyek.
 
