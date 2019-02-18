@@ -12,7 +12,7 @@ Jika Anda tertarik mempelajari sebelum terjun untuk mendalaminya, kami telah <a 
 
 jika Anda adalah seorang frontend developer berpengalaman dan ingin tau bagaimana perbandingan Vue dengan library/framework lainnya. Silahkan lihat di [Perbandingan dengan Framework lainnya](comparison.html).
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Free Vue.js Course">Lihat sebuah video pelatihan secara gratis di Vue Mastery</a></div>
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/intro-to-vue-js/vue-instance/" target="_blank" rel="noopener" title="Kursus Vue.js Gratis">Lihat sebuah video pelatihan secara gratis di Vue Mastery</a></div>
 
 ## Mulai
 
