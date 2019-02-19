@@ -1,24 +1,24 @@
 ---
-title: The Vue Instance
+title: Instan Vue
 type: guide
 order: 3
 ---
 
-## Creating a Vue Instance
+## Membuat Instan Vue
 
-Every Vue application starts by creating a new **Vue instance** with the `Vue` function:
+Setiap aplikasi Vue dimulai dengan membuat **instan Vue** baru dengan  fungsi `Vue`:
 
 ```js
 var vm = new Vue({
-  // options
+  // pilihan
 })
 ```
 
-Although not strictly associated with the [MVVM pattern](https://en.wikipedia.org/wiki/Model_View_ViewModel), Vue's design was partly inspired by it. As a convention, we often use the variable `vm` (short for ViewModel) to refer to our Vue instance.
+Meskipun tidak terkait erat dengan [pola MVVM](https://en.wikipedia.org/wiki/Model_View_ViewModel), desain Vue sebagian terinspirasi oleh itu. Sebagai konvensi, kami sering menggunakan variabel `vm` (kependekan dari ViewModel) untuk merujuk ke instan Vue kami.
 
-When you create a Vue instance, you pass in an **options object**. The majority of this guide describes how you can use these options to create your desired behavior. For reference, you can also browse the full list of options in the [API reference](../api/#Options-Data).
+Saat kalian membuat instance Vue, kalian mengirimkan **objek opsi (options object)**. Mayoritas panduan ini menjelaskan bagaimana kalian dapat menggunakan opsi ini untuk membuat perilaku yang kalian inginkan. Sebagai bahan referensi, kalian juga dapat menelusuri daftar opsi lengkap dalam [referensi API](../api/#Options-Data).
 
-A Vue application consists of a **root Vue instance** created with `new Vue`, optionally organized into a tree of nested, reusable components. For example, a todo app's component tree might look like this:
+Aplikasi Vue terdiri dari **root instan Vue (root Vue Instance)** yang dibuat dengan `new Vue`, secara opsional diatur ke dalam cabang komponen bersarang (nested), komponen yang dapat digunakan kembali. Misalnya, bagan komponen aplikasi todo yang mungkin akan terlihat seperti ini:
 
 ```
 Root Instance
@@ -31,42 +31,42 @@ Root Instance
       └─ TodoListStatistics
 ```
 
-We'll talk about [the component system](components.html) in detail later. For now, just know that all Vue components are also Vue instances, and so accept the same options object (except for a few root-specific options).
+Nanti kami akan menjelaskan tentang [sistem komponen](components.html) lebih rinci. Untuk saat ini, perlu diketahui bahwa semua komponen Vue juga merupakan instan Vue, dan terima objek opsi yang sama (kecuali untuk beberapa opsi root-specific).
 
-## Data and Methods
+## Data dan Method
 
-When a Vue instance is created, it adds all the properties found in its `data` object to Vue's **reactivity system**. When the values of those properties change, the view will "react", updating to match the new values.
+Ketika instan Vue dibuat, ia akan menambahkan semua properti yang ditemukan di `data` objeknya ke **sistem reaktivitas** Vue. Ketika nilai properti tersebut berubah, tampilan akan "bereaksi", memperbarui agar sesuai dengan nilai baru.
 
 ```js
-// Our data object
+// data obyek kalian
 var data = { a: 1 }
 
-// The object is added to a Vue instance
+// Sebuah obyek telah ditambahkan ke instan Vue
 var vm = new Vue({
   data: data
 })
 
-// Getting the property on the instance
-// returns the one from the original data
+// Mendapatkan properti pada instan
+// Mengembalikan satu dari data asli
 vm.a == data.a // => true
 
-// Setting the property on the instance
-// also affects the original data
+// Kelola properti pada instan
+// juga memengaruhi pada data asli
 vm.a = 2
 data.a // => 2
 
-// ... and vice-versa
+// ... dan sebaliknya
 data.a = 3
 vm.a // => 3
 ```
 
-When this data changes, the view will re-render. It should be noted that properties in `data` are only **reactive** if they existed when the instance was created. That means if you add a new property, like:
+Ketika data ini berubah, tampilan akan dirender ulang. Perlu dicatat bahwa properti di `data` hanya akan **reaktif** jika ada saat instance dibuat. Itu berarti jika kalian menambahkan properti baru, seperti:
 
 ```js
-vm.b = 'hi'
+vm.b = 'hai'
 ```
 
-Then changes to `b` will not trigger any view updates. If you know you'll need a property later, but it starts out empty or non-existent, you'll need to set some initial value. For example:
+Maka perubahan `b` tidak akan memicu pembaruan tampilan apa pun. Jika kalian tahu, bahwa nanti kalian akan membutuhkan properti, tetapi properti itu mulai kosong atau tidak ada, maka kalian harus menetapkan beberapa nilai awal. Sebagai contoh:
 
 ```js
 data: {
@@ -78,7 +78,7 @@ data: {
 }
 ```
 
-The only exception to this being the use of `Object.freeze()`, which prevents existing properties from being changed, which also means the reactivity system can't _track_ changes.
+Satu-satunya pengecualian untuk hal ini adalah penggunaan `Object.freeze()`, yang mencegah properti yang ada diubah, yang juga berarti sistem reaktivitas tidak dapat _melacak_ perubahan.
 
 ```js
 var obj = {
@@ -96,12 +96,12 @@ new Vue({
 ```html
 <div id="app">
   <p>{{ foo }}</p>
-  <!-- this will no longer update `foo`! -->
+  <!-- ini tidak akan diperbarui `foo`! -->
   <button v-on:click="foo = 'baz'">Change it</button>
 </div>
 ```
 
-In addition to data properties, Vue instances expose a number of useful instance properties and methods. These are prefixed with `$` to differentiate them from user-defined properties. For example:
+Selain properti data, instan Vue memaparkan sejumlah properti instan dan metode yang berguna. Ini diawali dengan `$` untuk membedakannya dari properti yang telah ditentukan pengguna. Sebagai contoh:
 
 ```js
 var data = { a: 1 }
@@ -113,19 +113,19 @@ var vm = new Vue({
 vm.$data === data // => true
 vm.$el === document.getElementById('example') // => true
 
-// $watch is an instance method
+// $watch adalah sebuah metode instan
 vm.$watch('a', function (newValue, oldValue) {
-  // This callback will be called when `vm.a` changes
+  // Ini pengembalian balik (callback) yang akan di panggil ketika `vm.a` berubah
 })
 ```
 
-In the future, you can consult the [API reference](../api/#Instance-Properties) for a full list of instance properties and methods.
+Di masa mendatang, kalian dapat berkonsultasi dengan [referensi API](../api/#Instance-Properties) untuk daftar lengkap properti dan metode turunan.
 
-## Instance Lifecycle Hooks
+## Instan Lifecycle Hooks
 
-Each Vue instance goes through a series of initialization steps when it's created - for example, it needs to set up data observation, compile the template, mount the instance to the DOM, and update the DOM when data changes. Along the way, it also runs functions called **lifecycle hooks**, giving users the opportunity to add their own code at specific stages.
+Setiap instan Vue melewati serangkaian langkah inisialisasi saat dibuat - misalnya, perlu mengatur observasi data, mengkompilasi template, `mount` instan ke DOM, dan memperbarui DOM ketika data berubah. Sepanjang jalan, itu juga menjalankan fungsi yang disebut **lifecycle hooks**, memberikan pengguna kesempatan untuk menambahkan kode mereka sendiri pada tahap tertentu.
 
-For example, the [`created`](../api/#created) hook can be used to run code after an instance is created:
+Sebagai contoh, [`membuat`](../api/#created) hook dapat digunakan untuk menjalankan kode setelah sebuah instan dibuat:
 
 ```js
 new Vue({
@@ -133,19 +133,19 @@ new Vue({
     a: 1
   },
   created: function () {
-    // `this` points to the vm instance
+    // `this` mengarahkan ke vm instan
     console.log('a is: ' + this.a)
   }
 })
-// => "a is: 1"
+// => "a adalah: 1"
 ```
 
-There are also other hooks which will be called at different stages of the instance's lifecycle, such as [`mounted`](../api/#mounted), [`updated`](../api/#updated), and [`destroyed`](../api/#destroyed). All lifecycle hooks are called with their `this` context pointing to the Vue instance invoking it.
+Ada juga `hook` lainnya yang akan dipanggil pada berbagai tahap (lifecycle), seperti [`mounted`](../api/#mounted),  [`updated`](../api/#updated), dan [`destroyed`](../api/#destroyed). Semua lifecycle hook dipanggil dengan `this` yang konteksnya menunjuk ke instan Vue yang memintanya.
 
-<p class="tip">Don't use [arrow functions](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) on an options property or callback, such as `created: () => console.log(this.a)` or `vm.$watch('a', newValue => this.myMethod())`. Since arrow functions are bound to the parent context, `this` will not be the Vue instance as you'd expect, often resulting in errors such as `Uncaught TypeError: Cannot read property of undefined` or `Uncaught TypeError: this.myMethod is not a function`.</p>
+<p class="tip">Jangan gunakan [Fungsi Panah (Arrow Function)](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) pada properti opsi atau panggilan balik (callback), seperti `created: () => console.log(this.a)` atau `vm.$watch('a', newValue => this.myMethod())`. Karena fungsi panah terikat pada konteks induk, `this` tidak akan menjadi instan Vue seperti yang kalian harapkan, sering menghasilkan kesalahan seperti `Uncaught TypeError: Cannot read property of undefined` atau `Uncaught TypeError: this.myMethod is not a function`.</p>
 
-## Lifecycle Diagram
+## Diagram Lifecycle
 
-Below is a diagram for the instance lifecycle. You don't need to fully understand everything going on right now, but as you learn and build more, it will be a useful reference.
+Di bawah ini adalah diagram untuk instan Lifecycle. kalian tidak perlu sepenuhnya memahami segala sesuatu yang terjadi saat ini, tetapi saat kalian belajar dan membangun lebih banyak, itu akan menjadi referensi yang sangat berguna.
 
-![The Vue Instance Lifecycle](/images/lifecycle.png)
+![Lifecycle Instan Vue](/images/lifecycle.png)
