@@ -155,6 +155,6 @@ memberitahu yang lainnya kalau kalan sedang membuat terjemahan.
 
 Jika kalian lebih suka bekerja secara tim, Translation Gang mungkin cocok bagi kalian. Beri tahu kami kalau kalian
 siap bergabung dengan komunitas penerjemah sumber terbuka internasional.
-Hubungi [Grigoriy Beziuk](https://gbezyuk.github.io) atau siapapun dari [tim](https://github.com/orgs/translation-gang/people.
+Hubungi [Grigoriy Beziuk](https://gbezyuk.github.io) atau siapapun dari [tim](https://github.com/orgs/translation-gang/people).
 
 Terima kasih sebelumnya sudah tertarik untuk membantu proses penerjemahan ;)
