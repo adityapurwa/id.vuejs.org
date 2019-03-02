@@ -18,7 +18,7 @@ React dan Vue memiliki banyak kesamaan. Mereka berdua:
 - menyediakan tampilan komponen reaktif dan mudah disusun
 - Mempertahankan fokus di library inti, dengan perhatian terhadap perutean dan manajemen keadaan global yang ditangani oleh library pendamping.
 
-Menjadi sangat mirip dalam lingkupan, kami menempatkan lebih banyak waktu untuk merapikan perbandingan ini daripada yang lain. Kami ingin memastikan tidak hanya keakuratan teknis, tetapi juga keseimbangan. Kami menonjolkan dimana kelebihan React dibanding Vue, contohnya ada pada kekayaan di ekosistemnya dan melimpahnya renderers kustom mereka.
+Karena kemiripan yang banyak, kami menempatkan lebih banyak waktu untuk merapikan perbandingan ini daripada yang lain. Kami ingin memastikan tidak hanya keakuratan teknis, tetapi juga keseimbangan. Kami menonjolkan dimana kelebihan React dibanding Vue, contohnya ada pada kekayaan di ekosistemnya dan melimpahnya renderers kustom mereka.
 
 Dengan mempertimbangkan hal tersebut, tidak dapat dihindari bahwa perbandingan akan terlihat menonjol kearah Vue kepada beberapa pengguna React, karena banyak dari subjek yang dieksplorasi lebih menjangkau subjektif. Kami mengakui keberadaan selera yang beragam, dan perbandingan ini semula bertujuan untuk menggaris besarkan alasan mengapa Vue bisa berpotensi lebih cocok jika preferensi selera mu ternyata berlaku dengan kami juga.
 
@@ -106,9 +106,9 @@ Hal ini menjadi sangat penting untuk dicatat bahwa terdapat banyak batasan desai
 
 #### Menurunkan skala
 
-React juga dikenal karena betapa terjal kesulitan pembelajarannya. Sebelum kalian bisa memulai, kalian harus tau tentang JSX dan mungkin ES2015%, karena banyak contoh yang menggunakan sintaks kelas React. Kalian juga harus mempelajari tentang sistem bangunan, walaupun karena kalian secara teknik dapat menggunakan Babel sendiri untuk menghimpun secara langsung kode kalian di browser, hal ini sangat tidak cocok untuk produksi.
+React terkenal sulit untuk dipelajari. Sebelum kalian bisa memulai, kalian harus tau tentang JSX dan mungkin ES2015+, karena banyak contoh yang menggunakan sintaks kelas React. Kalian juga harus mempelajari tentang sistem bangunan, walaupun karena kalian secara teknik dapat menggunakan Babel sendiri untuk menghimpun secara langsung kode kalian di browser, hal ini sangat tidak cocok untuk produksi.
 
-Sementara menaikan skala dalam Vue sama baiknya dengan React, menurunkan skala juga sama baiknya seperti jQuery. Itu benar, untuk memulai, semua yang kalian butuhkan hanya memasukan sebuah tag skrip kedalam halaman tersebut:
+Vue bisa dibuat unggul seperti React, Vue juga bisa digunakan secara sederhana seperti jQuery. Itu benar, untuk memulai, semua yang kalian butuhkan hanya memasukan sebuah tag skrip kedalam halaman tersebut:
 
 ``` html
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -116,13 +116,13 @@ Sementara menaikan skala dalam Vue sama baiknya dengan React, menurunkan skala j
 
 Kemudian kalian dapat memulai menulis kode Vue, dan bahkan meluncurkan versi _minified_ ke produksi tanpa merasa bersalah atau harus cemas karena masalah performa.
 
-Karena kalian tidak perlu tahu tentang JSX, ES2015, atau sistem bangunan untuk memulai Vue, Vue juga biasanya hanya memakan waktu pengembang kurang dari sehari untuk membaca [panduannya](./) untuk mempelajari hal yang cukup untuk membangun aplikasi yang tidak mengada-ngada.
+Karena kalian tidak perlu tahu tentang JSX, ES2015, atau _build system_ untuk menggunakan Vue, Vue juga biasanya hanya memakan waktu pengembang kurang dari sehari untuk membaca [panduannya](./) untuk mempelajari hal yang cukup untuk membangun aplikasi yang tidak mengada-ngada.
 
 ### Native Rendering
 
 React _Native_ membuat kalian dapat menulis aplikasi yag di _native-render_ untuk iOS dan Android menggunakan model komponen React yang sama. Hal ini bagus karena sebagai pengembang, kalian bisa mengaplikasikan pengetahuan kalian tentang _framework_ ke berbagai _platform_. Pada waktu mendatang, Vue sudah memiliki kolaborasi resmi dengan [Weex](https://weex.apache.org/), sebuah framework antarmuka lintas-platform yang dibuat oleh grup Alibaba dan di inkubasi oleh Lembaga Perangkat Lunak Apache (dalam bahasa inggris Apache Software Foundation atau ASF). Weex membuat kalian dapat menggunakan sintaks komponen Vue yang sama untuk menulis komponen yang tidak hanya dapat disajikan di browser, tapi juga secara native pada iOS dan Android!
 
-Pada saat ini, saat ini Weex masih aktif dikembangkan dan tidak sedewasa dan sudah teruji perang seperti React, tetapi perkembangannya didorong oleh kebutuhan produksi dari bisnis komersional elektronik (e-commerce) di dunia, dan tim Vue juga aktif berkolaborasi dengan tim Weex untuk memastikan pengalaman yang nyaman untuk para pengembang.
+Pada saat ini, saat ini Weex masih aktif dikembangkan dan tidak sedewasa dan sudah teruji seperti React, tetapi perkembangannya didorong oleh kebutuhan produksi dari bisnis komersional elektronik (e-commerce) di dunia, dan tim Vue juga aktif berkolaborasi dengan tim Weex untuk memastikan pengalaman yang nyaman untuk para pengembang.
 
 Pilihan laih adalah plugin [NativeScript-Vue](https://nativescript-vue.org/), a [NativeScript](https://www.nativescript.org/) untuk membangun aplikasi pekat dengan native menggunakan Vue.js.
 
@@ -142,7 +142,7 @@ Beberapa dari sintaks Vue akan terlihat sangat mirip dengan AngularJS (contohnya
 
 Vue sangat sederhana dibanding AngularJS, keduanya pada aspek API dan desain. Pembelajaran yang cukup untuk membangun aplikasi yang tidak mengada-ngada biasanya memakan waktu kurang dari satu hari, yang mana tidak benar untuk AngularJS
 
-### Flexibilitas dan Modularitas
+### Fleksibilitas dan Modularitas
 
 AngularJS memiliki opini yang kuat tentang harus bagaimana aplikasi kalian terstruktur, sementara Vue lebih ke solusi flexibel, modular. Sementara hal ini membuat Vue lebih dapat diadaptasikan dengan berbagai macam proyek, kami juga mengenal bahwa memiliki beberapa pilihan yang ditentukan olehmu sesekali berguna, jadi kalian bisa memulai koding.
 
@@ -150,7 +150,7 @@ Itulah mengapa kami menawarkan [template webpack](https://github.com/vuejs-templ
 
 ### Mengikat data
 
-AngularJS menggunakan pengikat dua-arah diantara lingkupan, sementara Vue memperkuat sebuah alur data satu-arah diantara komponen. al ini membuat alur dari data menjadi lebih mudah untuk di aplikasi yang tidak mengada-ngada.
+AngularJS menggunakan pengikat dua-arah diantara lingkupan, sementara Vue memaksa alur data satu-arah diantara komponen. Hal ini membuat alur dari data menjadi lebih mudah untuk di aplikasi yang tidak mengada-ngada.
 
 ### Instruksi vs Komponen
 
@@ -158,7 +158,7 @@ Vue sudah menjelaskan berbedaan diantara Instruksi dan komponen. Instruksi berar
 
 ### Performa runtime
 
-Vue memiliki performa yang lebih baik dan lebih, lebih mudah untuk di optimasi karena tidak menggunakan pengecakan kasar. AngularJS menjadi lamban karena memiliki banyak pengawas, karena setiap kali apapun berupah didalam lingkupan, semua pengawas ini harus mengevaluasi ulang lagi. Dan juga, rotasi penggalian dapat juga dijalankan berulang kali untuk "menstabilkan" jika beberapa pengawas memicu pembaruan lain. Pengguna AngularJS harus sering kembali ke teknik batin untuk melewati rotasi penggalian ini, dan di beberapa situasi, tidak terdapat jalan untuk mengoptimasi sebuah lingkupan dengan banyak pengawas.
+Vue memiliki performa yang lebih baik, dan lebih mudah untuk di optimasi karena tidak menggunakan _dirty checking_. AngularJS menjadi lamban karena memiliki banyak pengawas, karena setiap kali apapun berupah didalam lingkupan, semua pengawas ini harus mengevaluasi ulang lagi. Dan juga, rotasi penggalian dapat juga dijalankan berulang kali untuk "menstabilkan" jika beberapa pengawas memicu pembaruan lain. Pengguna AngularJS harus sering kembali ke teknik batin untuk melewati rotasi penggalian ini, dan di beberapa situasi, tidak terdapat jalan untuk mengoptimasi sebuah lingkupan dengan banyak pengawas.
 
 Vue tidak terbebani dengan hal ini sama sekali karena Vue menggunakan sistem observasi pelacakan dependency transparan dengan pengantrian _async_ - semua perubahan dipicu secara terpisah kecuali mereka memiliki hubungan dependency yang tertera.
 
@@ -170,7 +170,7 @@ Kami memiliki bagian terpisah untuk Angular terbaru karena Angular baru tersebut
 
 ### TypeScript
 
-Angular mewajibkan menggunakan TypeScript, diketahui dengan semua dokumentasinya dan sumber pembelajarannya berdasarkan dari TypeScript. TypeScript memiliki bebera keuntungannya - tipe pengecekan statis bisa sangat berguna untuk aplikasi skala-besar, dan bisa menjadi dorongan produktifitas yang cukup besar bagi pengembang dengan latar belakang Java dan C#.
+Angular mewajibkan menggunakan TypeScript, diketahui dengan semua dokumentasinya dan sumber pembelajarannya berdasarkan dari TypeScript. TypeScript memiliki beberapa keuntungan - tipe pengecekan statis bisa sangat berguna untuk aplikasi skala-besar, dan bisa menjadi dorongan produktifitas yang cukup besar bagi pengembang dengan latar belakang Java dan C#.
 
 Bagaimanapun Juga, tidak semua orang ingin menggunakan TypeScript. Dalam banyak kasus berskala lebih kecil, mengenalkan sebuah _typesystem_ bisa menambah beban daripada meningkatkan produktifitas. Dalam kasus tersebut, kalian lebih baik menggunakan Vue, karena menggunakan Angular tanpa TypeScript dapat menjadi sangat menantang. 
 
@@ -198,7 +198,7 @@ Lengkung pembelajaran Angular lebih terjal. Permukaan API dari framework sangat 
 
 Ember adalah framework berfitur-lengkap yang di desain menjadi berpendirian teguh. Ember penyediakan banyak konvensi yang mapan dan setelah kalian terbiasa dengannya, dapat membuat kalian sangat produktif. Tetapi, hal ini berarti lengkung pembelajaran menjadi tinggi dan fleksibilitas terbebani. Hal ini sebuah pertukaran ketika kalian mencoba untuk mengambil diantara framework yang berpendirian dan beberapa peralatan library yang longgar yang dapat bekerja sama. Yang terakhir memberikan kalian kebebasan lebi tetapi juga membutuhkan kalian untuk membuat keputusan arsitektur.
 
-Dengan kata lain, hal ini akan menjadi perbandingan yang lebih baik diantara inti Core dan lapisan [templating](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) dan [model objek](https://guides.emberjs.com/v2.10.0/object-model/) Ember: 
+Dengan kata lain, hal ini akan menjadi perbandingan yang lebih baik diantara inti templating Vue dan [inti templating Ember](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) dan di lapisan [model objek](https://guides.emberjs.com/v2.10.0/object-model/): 
 
 - Vue menyediakan reaktifitas yang tidak terpaku pada objek JavaScript polosan dan properti sepenuhnya dihitung secara otomatis. Di Ember, kalian harus membungkus semuanya didalam Objek Ember dan mendeklarasikan dependency untuk menghitung property.
 
@@ -216,7 +216,7 @@ Disana sepertinya juga terdapat perbedaan filosofi pada desain API dimana jika k
 
 ## Polymer
 
-Polymet adalah proyek yang disponsori Google lainnya dan sebenarnya adalah sumber inspirasi dari Vue juga. Komponen dari Vue bisa menjadi longgar dibandingkan element kustom dari Polymer dan keduanya menyediakan gaya pengembangan yang mirip. Perbandingan yang sangat besar adalah Polymer dibuat setelah fitur Komponen Web terbaru dan membutuhkan polyfills yang tidak sepele untuk bekerja (dengan penurunan performa) pada browser yang tidak mendukung fitur secara native. Secara kontras, Vue bekerja tanpa dependency atau polyfills apapun hingga IE9.
+Polymer adalah proyek yang disponsori Google lainnya dan sebenarnya adalah sumber inspirasi dari Vue juga. Komponen dari Vue bisa menjadi longgar dibandingkan kustom elemen dari Polymer dan keduanya menyediakan gaya pengembangan yang mirip. Perbandingan yang sangat besar adalah Polymer dibuat setelah fitur Komponen Web terbaru dan membutuhkan polyfills yang tidak sepele untuk bekerja (dengan penurunan performa) pada browser yang tidak mendukung fitur secara native. Secara kontras, Vue bekerja tanpa dependency atau polyfills apapun hingga IE9.
 
 Di Polymer, timnya juga telah membuat sistem pengikat data yang sangat terbatas untuk menebus performanya. Contohnya, satu-satunya ekspresi yang didukung di template Polymer adalah penyangkalan boolean dan pemanggilan method tunggal. Implementasi komputasi propertinya juga sangat tidak fleksibel.
 
