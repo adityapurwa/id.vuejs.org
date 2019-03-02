@@ -196,7 +196,7 @@ Lengkung pembelajaran Angular lebih terjal. Permukaan API dari framework sangat 
 
 ## Ember
 
-Ember adalah framework berfitur-lengkap yang di desain menjadi berpendirian teguh. Ember penyediakan banyak konvensi yang mapan dan setelah kalian terbiasa dengannya, dapat membuat kalian sangat produktif. Tetapi, hal ini berarti lengkung pembelajaran menjadi tinggi dan fleksibilitas terbebani. Hal ini sebuah pertukaran ketika kalian mencoba untuk mengambil diantara framework yang berpendirian dan beberapa peralatan library yang longgar yang dapat bekerja sama. Yang terakhir memberikan kalian kebebasan lebi tetapi juga membutuhkan kalian untuk membuat keputusan arsitektur.
+Ember adalah framework berfitur-lengkap yang di desain dengan opini yang kuat. Ember penyediakan banyak konvensi yang mapan dan setelah kalian terbiasa dengannya, dapat membuat kalian sangat produktif. Tetapi, hal ini berarti lengkung pembelajaran menjadi tinggi dan fleksibilitas terbebani. Hal ini sebuah pertukaran ketika kalian mencoba untuk mengambil diantara framework yang berpendirian dan beberapa peralatan library yang longgar yang dapat bekerja sama. Yang terakhir memberikan kalian kebebasan lebi tetapi juga membutuhkan kalian untuk membuat keputusan arsitektur.
 
 Dengan kata lain, hal ini akan menjadi perbandingan yang lebih baik diantara inti templating Vue dan [inti templating Ember](https://guides.emberjs.com/v2.10.0/templates/handlebars-basics/) dan di lapisan [model objek](https://guides.emberjs.com/v2.10.0/object-model/): 
 
