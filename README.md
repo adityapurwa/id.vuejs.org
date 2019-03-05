@@ -39,7 +39,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Komponen Satu Berkas (KSB) / Single File Components (SFC)
 - [ ] Unit Testing / Unit Testing
 - [ ] Dukungan TypeScript / TypeScript Support
-- [ ] Peluncuran Produksi / Production Deployment
+- [x] Peluncuran Produksi / Production Deployment
 
 - [ ] Routing / Routing
 - [x] Manajemen State / State Management
@@ -49,7 +49,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Migrasi dari Vue 1.x / Migrating from Vue 1.x
 - [ ] Migrasi dari Vue Router 0.7.x / Migrating from Vue Router 0.7.x
 - [ ] Migrasi dari Vuex 0.6.x ke 1.0 / Migrating from Vux 0.6.x to 1.0
-- [ ] Perbandingan dengan Framework Lainnya / Comparison with Other Frameworks
+- [x] Perbandingan dengan Framework Lainnya / Comparison with Other Frameworks
 - [x] Gabung dengan Komunitasi Vue.js / Join the Vue.js Community!
 - [ ] Berkenalan dengan Tim / Meet the Team
 
