@@ -1,6 +1,6 @@
 # Berkontribusi ke Repositori Ini
 
-Repositori ini adalah repositori yang dikhususkan untuk menerjemahkan panduan resmi Vue.js ke Bahasa Indonesia. Jika kalian ingin berkontribusi, silahkan ikuti panduang yang dituangkan di berkas ini.
+Repositori ini adalah repositori yang dikhususkan untuk menerjemahkan panduan resmi Vue.js ke Bahasa Indonesia. Jika kalian ingin berkontribusi, silahkan ikuti panduan yang dituangkan di berkas ini.
 
 ## Cara Berkontribusi
 

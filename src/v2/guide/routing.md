@@ -4,13 +4,13 @@ type: guide
 order: 501
 ---
 
-## Official Router
+## Router Resmi
 
-For most Single Page Applications, it's recommended to use the officially-supported [vue-router library](https://github.com/vuejs/vue-router). For more details, see vue-router's [documentation](https://router.vuejs.org/).
+Untuk kebanyakan Aplikasi Satu Halaman, sangat direkomendasikan untuk menggunakan [library vue-router](https://github.com/vuejs/vue-router) yang didukung resmi. Untuk rincian lebih lanjut, lihat [dokumentasi](https://router.vuejs.org/) vue-router.
 
-## Simple Routing From Scratch
+## Routing sederhana dari nol
 
-If you only need very simple routing and do not wish to involve a full-featured router library, you can do so by dynamically rendering a page-level component like this:
+Jika kalian hanya membutuhkan _routing_ yang sangat sederhana dan tidak ingin mengikut sertakan library router berfitur lengkap, kalian bisa melakukannya dengan cara me-_render_ komponen _page-level_ secara dinamis seperti berikut:
 
 ``` js
 const NotFound = { template: '<p>Page not found</p>' }
@@ -36,8 +36,8 @@ new Vue({
 })
 ```
 
-Combined with the HTML5 History API, you can build a very basic but fully-functional client-side router. To see that in practice, check out [this example app](https://github.com/chrisvfritz/vue-2.0-simple-routing-example).
+Digabung dengan API Sejarah HTML5, kalian bisa membangun router _client-side_ yang sangat mendasar tapi berfungsi sepenuhnya. Untuk melihatnya dalam praktek, bisa kalian cek di [contoh aplikasi ini](https://github.com/chrisvfritz/vue-2.0-simple-routing-example).
 
-## Integrating 3rd-Party Routers
+## Mengintegrasi Router Pihak Ketiga
 
-If there's a 3rd-party router you prefer to use, such as [Page.js](https://github.com/visionmedia/page.js) or [Director](https://github.com/flatiron/director), integration is [similarly easy](https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs). Here's a [complete example](https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs) using Page.js.
+Jika ada router pihak ketiga yang ingin kalian gunakan, seperti [Page.js](https://github.com/visionmedia/page.js) atau [Director](https://github.com/flatiron/director), mengintegrasi merupakan hal yang [cukup mudah](https://github.com/chrisvfritz/vue-2.0-simple-routing-example/compare/master...pagejs). Berikut adalah [contoh lengkap](https://github.com/chrisvfritz/vue-2.0-simple-routing-example/tree/pagejs) dengan menggunakan Page.js.
