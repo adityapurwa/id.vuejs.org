@@ -41,7 +41,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Dukungan TypeScript / TypeScript Support
 - [x] Peluncuran Produksi / Production Deployment
 
-- [ ] Routing / Routing
+- [x] Routing / Routing
 - [x] Manajemen State / State Management
 - [x] Rendering di Sisi Server / Server Side Rendering
 - [ ] Lebih Dalam Tentang Reaktifitas / Reactivity in Depth
