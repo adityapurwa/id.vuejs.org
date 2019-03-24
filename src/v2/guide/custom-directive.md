@@ -1,12 +1,12 @@
 ---
-title: Custom Direktif
+title: Direktif Kustom
 type: guide
 order: 302
 ---
 
 ## Pendahuluan
 
-Sebagai tambahan kepada kumpulan direktif standar yang terdapat dalam inti (`v-model` and `v-show`), Vue juga mengizinkan kalian untuk mendaftarkan direktif-direktif custom kalian sendiri. Perlu diperhatikan bahwa pada Vue 2.0, bentuk dasar dari penggunaan ulang kode dan abstraksi adalah komponen-komponen - namun ada banyak kasus dimana kalian membutuhkan beberapa akses _low-level DOM_ pada elemen-elemen sederhana, seperti ini:
+Sebagai tambahan kepada kumpulan direktif standar yang terdapat dalam inti (`v-model` and `v-show`), Vue juga mengizinkan kalian untuk mendaftarkan direktif-direktif kustom kalian sendiri. Perlu diperhatikan bahwa pada Vue 2.0, bentuk dasar dari penggunaan ulang kode dan abstraksi adalah komponen-komponen - namun ada banyak kasus dimana kalian membutuhkan beberapa akses _low-level DOM_ pada elemen-elemen sederhana, seperti ini:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -27,7 +27,7 @@ new Vue({
 Ketika memuat halaman, elemen tersebut mendapatkan fokus (catatan: `autocofus` tidak berjalan pada Safari versi _mobile_). Kenyataannya, jika kalian belum melakukan klik pada bagian manapun sejak mengunjungi halaman ini, isian di atas seharusnya difokuskan untuk saat ini. Sekarang mari kita membuat direktif yang dapat menyelesaikan hal ini:
 
 ``` js
-// Mendaftarkan sebuah custom direktif global yang bernama `v-focus`
+// Mendaftarkan sebuah direktif kustom global yang bernama `v-focus`
 Vue.directive('focus', {
   // Ketika ikatan elemen dimasukkan ke dalam DOM...
   inserted: function (el) {
@@ -91,7 +91,7 @@ Direktif _hook_ menggunakan argumen-argumen sebagai berikut:
 
 <p class="tip">Selain `el`, kalian seharusnya memperlakukan argumen-argumen tersebut sebagai _read-only_ dan tidak pernah melakukan perubahan terhadapnya. Jika kalian ingin berbagi informasi terhadap _hook_-_hook_ yang ada, disarankan untuk melakukannya melalui elemen [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
 
-Contoh dari direktif custom yang menggunakan beberapa properti sebagai berikut:
+Contoh dari direktif kustom yang menggunakan beberapa properti sebagai berikut:
 
 ``` html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>

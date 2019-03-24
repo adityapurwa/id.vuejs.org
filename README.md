@@ -31,7 +31,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Transisi State / State's Transitions
 
 - [x] Mixins / Mixins 
-- [ ] Direktif Kustom / Custom Directives
+- [x] Direktif Kustom / Custom Directives
 - [ ] Fungsi Render & JSX / Render Functions and JSX
 
 - [x] Plugin / Plugins
