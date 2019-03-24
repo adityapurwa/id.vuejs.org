@@ -1,14 +1,14 @@
 ---
-title: Unit Testing
+title: Pengujian Unit
 type: guide
 order: 402
 ---
 
-> [Vue CLI](https://cli.vuejs.org/) has built-in options for unit testing with [Jest](https://github.com/facebook/jest) or [Mocha](https://mochajs.org/) that works out of the box. We also have the official [Vue Test Utils](https://vue-test-utils.vuejs.org/) which provides more detailed guidance for custom setups.
+> [Vue CLI](https://cli.vuejs.org/) memiliki pilihan _built-in_ untuk pengujian unit dengan [Jest](https://github.com/facebook/jest) atau [Mocha](https://mochajs.org/) yang dapat langsung digunakan. Kami juga memiliki [Vue Test Utils](https://vue-test-utils.vuejs.org/) resmi yang menyediakan panduan lebih rinci untuk pengaturan custom.
 
-## Simple Assertions
+## Melakukan Assertion Sederhana
 
-You don't have to do anything special in your components to make them testable. Export the raw options:
+Kalian tidak perlu melakukan sesuatu yang spesial pada komponen agar dapat dilakukan pengujian. Ekspor opsi _raw_:
 
 ``` html
 <template>
@@ -29,36 +29,36 @@ You don't have to do anything special in your components to make them testable. 
 </script>
 ```
 
-Then import the component options along with Vue, and you can make many common assertions (here we are using Jasmine/Jest style `expect` assertions just as an example):
+Lalu impor opsi komponen bersama Vue, dan kalian dapat membuat banyak _assertion_ umum (di sini kita menggunakan model _assertion_ `expect` Jasmine/Jest sebagai contoh):
 
 ``` js
-// Import Vue and the component being tested
+// Impor Vue dan komponen yang akan dites
 import Vue from 'vue'
 import MyComponent from 'path/to/MyComponent.vue'
 
-// Here are some Jasmine 2.0 tests, though you can
-// use any test runner / assertion library combo you prefer
+// Di sini adalah beberapa test Jasmine 2.0, meskipun kalian bisa
+// menggunakan runner test / pustaka assertion apapun yang kalian inginkan
 describe('MyComponent', () => {
-  // Inspect the raw component options
+  // Periksa opsi komponen raw
   it('has a created hook', () => {
     expect(typeof MyComponent.created).toBe('function')
   })
 
-  // Evaluate the results of functions in
-  // the raw component options
+  // Evaluasi hasil dari fungsi pada
+  // opsi komponen raw
   it('sets the correct default data', () => {
     expect(typeof MyComponent.data).toBe('function')
     const defaultData = MyComponent.data()
     expect(defaultData.message).toBe('hello!')
   })
 
-  // Inspect the component instance on mount
+  // Periksa instan komponen pada mount
   it('correctly sets the message when created', () => {
     const vm = new Vue(MyComponent).$mount()
     expect(vm.message).toBe('bye!')
   })
 
-  // Mount an instance and inspect the render output
+  // Muat sebuah instan dan periksa keluaran render
   it('renders the correct message', () => {
     const Constructor = Vue.extend(MyComponent)
     const vm = new Constructor().$mount()
@@ -67,9 +67,9 @@ describe('MyComponent', () => {
 })
 ```
 
-## Writing Testable Components
+## Menulis Komponen yang Dapat Diuji
 
-A component's render output is primarily determined by the props it receives. If a component's render output solely depends on its props it becomes straightforward to test, similar to asserting the return value of a pure function with different arguments. Take a simplified example:
+Keluaran render dari sebuah komponen pada dasarnya ditentukan oleh _props_ yang diterima. Jika keluaran render komponen hanya bergantung pada _props_ itu sendiri maka menjadi mudah untuk dilakukan pengujian, sama halnya pada proses _assertion_ kembalian nilai dari fungsi dengan argumen yang berbeda. Ambil contoh yang sederhana seperti berikut:
 
 ``` html
 <template>
@@ -83,13 +83,13 @@ A component's render output is primarily determined by the props it receives. If
 </script>
 ```
 
-You can assert its render output with different props using the `propsData` option:
+Kalian dapat melakukan _assert_ keluaran render dengan props yang berbeda menggunakan opsi `propsData`:
 
 ``` js
 import Vue from 'vue'
 import MyComponent from './MyComponent.vue'
 
-// helper function that mounts and returns the rendered text
+// fungsi bantuan yang memuat dan mengembalikan teks yang sudah di-render
 function getRenderedText (Component, propsData) {
   const Constructor = Vue.extend(Component)
   const vm = new Constructor({ propsData: propsData }).$mount()
@@ -109,17 +109,17 @@ describe('MyComponent', () => {
 })
 ```
 
-## Asserting Asynchronous Updates
+## Melakukan Assertion Pada Pembaruan Asynchronous
 
-Since Vue [performs DOM updates asynchronously](reactivity.html#Async-Update-Queue), assertions on DOM updates resulting from state change will have to be made in a `Vue.nextTick` callback:
+Sejak Vue [melakukan pembaruan DOM secara asynchronous](reactivity.html#Async-Update-Queue), melakukan _assertion_ pada pembaruan DOM akibat dari perubahan state harus dibuat melalui callback `Vue.nextTick`:
 
 ``` js
-// Inspect the generated HTML after a state update
+// Periksa HTML yang diciptakan setelah pembaruan state
 it('updates the rendered message when vm.message updates', done => {
   const vm = new Vue(MyComponent).$mount()
   vm.message = 'foo'
 
-  // wait a "tick" after state change before asserting DOM updates
+  // tunggu "tick" setelah perubahan state sebelum melakukan assertion pembaruan DOM
   Vue.nextTick(() => {
     expect(vm.$el.textContent).toBe('foo')
     done()
@@ -127,4 +127,4 @@ it('updates the rendered message when vm.message updates', done => {
 })
 ```
 
-For more in-depth information on unit testing in Vue, check out [Vue Test Utils](https://vue-test-utils.vuejs.org/) and our cookbook entry about [unit testing vue components](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html).
+Untuk mendapatkan informasi yang lebih dalam dan rinci mengenai pengujian unit pada Vue, lihat [Vue Test Utils](https://vue-test-utils.vuejs.org/) dan cookbook kami tentang [pengajuan unit komponen Vue](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
