@@ -1,10 +1,10 @@
 ---
-title: Pengujian Unit
+title: Unit Testing
 type: guide
 order: 402
 ---
 
-> [Vue CLI](https://cli.vuejs.org/) memiliki pilihan _built-in_ untuk pengujian unit dengan [Jest](https://github.com/facebook/jest) atau [Mocha](https://mochajs.org/) yang dapat langsung digunakan. Kami juga memiliki [Vue Test Utils](https://vue-test-utils.vuejs.org/) resmi yang menyediakan panduan lebih rinci untuk pengaturan custom.
+> [Vue CLI](https://cli.vuejs.org/) memiliki pilihan _built-in_ untuk unit testing dengan [Jest](https://github.com/facebook/jest) atau [Mocha](https://mochajs.org/) yang dapat langsung digunakan. Kami juga memiliki [Vue Test Utils](https://vue-test-utils.vuejs.org/) resmi yang menyediakan panduan lebih rinci untuk pengaturan custom.
 
 ## Melakukan Assertion Sederhana
 
@@ -127,4 +127,4 @@ it('updates the rendered message when vm.message updates', done => {
 })
 ```
 
-Untuk mendapatkan informasi yang lebih dalam dan rinci mengenai pengujian unit pada Vue, lihat [Vue Test Utils](https://vue-test-utils.vuejs.org/) dan cookbook kami tentang [pengajuan unit komponen Vue](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
+Untuk mendapatkan informasi yang lebih dalam dan rinci mengenai unit testing pada Vue, lihat [Vue Test Utils](https://vue-test-utils.vuejs.org/) dan cookbook kami tentang [pengajuan unit komponen Vue](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
