@@ -4,7 +4,7 @@ type: guide
 order: 402
 ---
 
-> [Vue CLI](https://cli.vuejs.org/) memiliki pilihan _built-in_ untuk unit testing dengan [Jest](https://github.com/facebook/jest) atau [Mocha](https://mochajs.org/) yang dapat langsung digunakan. Kami juga memiliki [Vue Test Utils](https://vue-test-utils.vuejs.org/) resmi yang menyediakan panduan lebih rinci untuk pengaturan custom.
+> [Vue CLI](https://cli.vuejs.org/) memiliki pilihan _built-in_ untuk unit testing dengan [Jest](https://github.com/facebook/jest) atau [Mocha](https://mochajs.org/) yang dapat langsung digunakan. Kami juga memiliki [Vue Test Utils](https://vue-test-utils.vuejs.org/) resmi yang menyediakan panduan lebih rinci untuk pengaturan kustom.
 
 ## Melakukan Assertion Sederhana
 
@@ -29,7 +29,7 @@ Kalian tidak perlu melakukan sesuatu yang spesial pada komponen agar dapat dilak
 </script>
 ```
 
-Lalu impor opsi komponen bersama Vue, dan kalian dapat membuat banyak _assertion_ umum (di sini kita menggunakan model _assertion_ `expect` Jasmine/Jest sebagai contoh):
+Lalu impor komponen bersama Vue, dan kalian dapat membuat banyak _assertion_ umum (di sini kita menggunakan model _assertion_ `expect` Jasmine/Jest sebagai contoh):
 
 ``` js
 // Impor Vue dan komponen yang akan dites
@@ -69,7 +69,7 @@ describe('MyComponent', () => {
 
 ## Menulis Komponen yang Dapat Diuji
 
-Keluaran render dari sebuah komponen pada dasarnya ditentukan oleh _props_ yang diterima. Jika keluaran render komponen hanya bergantung pada _props_ itu sendiri maka menjadi mudah untuk dilakukan pengujian, sama halnya pada proses _assertion_ kembalian nilai dari fungsi dengan argumen yang berbeda. Ambil contoh yang sederhana seperti berikut:
+Keluaran render dari sebuah komponen pada dasarnya ditentukan oleh _props_ yang diterima. Jika keluaran render komponen hanya bergantung pada _props_ itu sendiri maka pengujian dapat dilakukan dengan mudah, sama halnya pada proses _assertion_ kembalian nilai dari fungsi dengan argumen yang berbeda-beda. Ambil contoh yang sederhana seperti berikut:
 
 ``` html
 <template>
@@ -83,7 +83,7 @@ Keluaran render dari sebuah komponen pada dasarnya ditentukan oleh _props_ yang 
 </script>
 ```
 
-Kalian dapat melakukan _assert_ keluaran render dengan props yang berbeda menggunakan opsi `propsData`:
+Kalian dapat melakukan _assert_ keluaran hasil render dengan props yang berbeda menggunakan opsi `propsData`:
 
 ``` js
 import Vue from 'vue'
@@ -111,7 +111,7 @@ describe('MyComponent', () => {
 
 ## Melakukan Assertion Pada Pembaruan Asynchronous
 
-Sejak Vue [melakukan pembaruan DOM secara asynchronous](reactivity.html#Async-Update-Queue), melakukan _assertion_ pada pembaruan DOM akibat dari perubahan state harus dibuat melalui callback `Vue.nextTick`:
+Sejak Vue [melakukan pembaruan DOM secara asynchronous](reactivity.html#Async-Update-Queue), melakukan _assertion_ pada pembaruan DOM akibat dari perubahan _state_ harus dibuat melalui callback `Vue.nextTick`:
 
 ``` js
 // Periksa HTML yang diciptakan setelah pembaruan state
@@ -127,4 +127,4 @@ it('updates the rendered message when vm.message updates', done => {
 })
 ```
 
-Untuk mendapatkan informasi yang lebih dalam dan rinci mengenai unit testing pada Vue, lihat [Vue Test Utils](https://vue-test-utils.vuejs.org/) dan cookbook kami tentang [pengajuan unit komponen Vue](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
+Untuk mendapatkan informasi yang lebih dalam dan rinci mengenai unit testing pada Vue, lihat [Vue Test Utils](https://vue-test-utils.vuejs.org/) dan cookbook kami tentang [unit testing komponen Vue](https://vuejs.org/v2/cookbook/unit-testing-vue-components.html)
