@@ -78,7 +78,6 @@
     <script type="text/javascript" defer="defer" src="https://extend.vimeocdn.com/ga/72160148.js"></script>
   </head>
   <body class="<%- isIndex ? '' : 'docs' -%>">
-    <%- partial('partials/vuemastery_banner.ejs') %>
     <div id="mobile-bar" <%- isIndex ? 'class="top"' : '' %>>
       <a class="menu-button"></a>
       <a class="logo" href="/"></a>
@@ -120,7 +119,8 @@
       apiKey: '85cc3221c9f23bfbaa4e3913dd7625ea',
       indexName: 'vuejs',
       inputSelector: selector,
-      algoliaOptions: { facetFilters: ["version:" + version] }
+      algoliaOptions: { facetFilters: ["version:" + version] },
+      autocompleteOptions: { hint: false, appendTo: 'body'}
       })
     })
     </script>

@@ -1,5 +1,5 @@
 ---
-title: Meet the Team
+title: Berkenalan dengan Tim
 type: guide
 order: 803
 ---
@@ -25,7 +25,7 @@ order: 803
       </h3>
       <dl>
         <template v-if="profile.reposOfficial">
-          <dt>Core focus</dt>
+          <dt>Fokus Inti</dt>
           <dd>
             <ul>
               <li v-for="repo in profile.reposOfficial">
@@ -35,7 +35,7 @@ order: 803
           </dd>
         </template>
         <template v-if="profile.github && profile.reposPersonal">
-          <dt>Ecosystem</dt>
+          <dt>Ekosistem</dt>
           <dd>
             <ul>
               <li v-for="repo in profile.reposPersonal">
@@ -47,30 +47,30 @@ order: 803
         <template v-if="profile.work">
           <dt>
             <i class="fa fa-briefcase"></i>
-            <span class="sr-only">Work</span>
+            <span class="sr-only">Pekerjaan</span>
           </dt>
           <dd v-html="workHtml"></dd>
         </template>
         <span v-if="profile.distanceInKm" class="distance">
           <dt>
             <i class="fa fa-map-marker"></i>
-            <span class="sr-only">Distance</span>
+            <span class="sr-only">Jarak</span>
           </dt>
           <dd>
-            About
+            Tentang
             <span
               v-if="profile.distanceInKm <= 150"
               :title="profile.name + ' is close enough to commute to your location.'"
               class="user-match"
-            >{{ textDistance }} away</span>
-            <template v-else>{{ textDistance }} away</template>
-            in {{ profile.city }}
+            >sejauh {{ textDistance }}</span>
+            <template v-else>sejauh {{ textDistance }}</template>
+            di {{ profile.city }}
           </dd>
         </span>
         <template v-else-if="profile.city">
           <dt>
             <i class="fa fa-map-marker"></i>
-            <span class="sr-only">City</span>
+            <span class="sr-only">Kota</span>
           </dt>
           <dd>
             {{ profile.city }}
@@ -79,14 +79,14 @@ order: 803
         <template v-if="profile.languages">
           <dt>
             <i class="fa fa-globe"></i>
-            <span class="sr-only">Languages</span>
+            <span class="sr-only">Bahasa</span>
           </dt>
           <dd v-html="languageListHtml" class="language-list"></dd>
         </template>
         <template v-if="profile.links">
           <dt>
             <i class="fa fa-link"></i>
-            <span class="sr-only">Links</span>
+            <span class="sr-only">Tautan</span>
           </dt>
           <dd>
             <ul>
@@ -122,8 +122,8 @@ order: 803
 <div id="team-members">
   <div class="team">
 
-    <h2 id="active-core-team-members">
-      Active Core Team Members
+    <h2 id="active-core-team-members">      
+      Anggota Tim Inti yang Aktif
       <button
         v-if="geolocationSupported && !userPosition"
         @click="getUserPosition"
@@ -142,15 +142,15 @@ order: 803
     </h2>
 
     <p v-if="errorGettingLocation" class="tip">
-      Failed to get your location.
+      Terjadi kesalahan saat hendak mendeteksi lokasi.
     </p>
 
     <p>
-      The development of Vue and its ecosystem is guided by an international team, some of whom have chosen to be featured below.
+      Pengembangan Vue dan ekosistemnya dipandu oleh tim internasional, beberapa ditampilkan di bawah:      
     </p>
 
     <p v-if="userPosition" class="success">
-      The core team has been sorted by their distance from you.
+      Diurutkan berdasarkan jarak ke lokasi anda.      
     </p>
 
     <vuer-profile
@@ -167,7 +167,7 @@ order: 803
     </h2>
 
     <p>
-      Here we honor some no-longer-active core team members who have made valuable contributions in the past.
+      Kita hormati beberapa anggota tim inti yang sudah tidak aktif dan sudah memberikan kontribusi yang berharga sebelumnya.      
     </p>
 
     <vuer-profile
@@ -180,7 +180,7 @@ order: 803
 
   <div class="team">
     <h2 id="community-partners">
-      Community Partners
+      Rekan Komunitas
       <button
         v-if="geolocationSupported && !userPosition"
         @click="getUserPosition"
@@ -193,21 +193,21 @@ order: 803
         ></i>
         <template v-else>
           <i class="fa fa-map-marker"></i>
-          <span>find near me</span>
+          <span>temukan di sekitar saya</span>
         </template>
       </button>
     </h2>
 
     <p v-if="errorGettingLocation" class="tip">
-      Failed to get your location.
+      Terjadi kesalahan saat hendak mendeteksi lokasi.
     </p>
 
     <p>
-      Some members of the Vue community have so enriched it, that they deserve special mention. We've developed a more intimate relationship with these key partners, often coordinating with them on upcoming features and news.
+      Beberapa anggota komunitas Vue sudah memberikan kontribusi yang sangat besar, mereka berhak untuk disebutkan secara khusus. Kami sudah berhubungan dekat dengan rekan-rekan penting ini; sampai kami sering berkordinasi untuk fitur dan berita yang akan datang.      
     </p>
 
     <p v-if="userPosition" class="success">
-      The community partners have been sorted by their distance from you.
+      Rekan komunitas diurutkan berdasarkan jarak ke tempat kalian.      
     </p>
 
     <vuer-profile
@@ -1266,7 +1266,7 @@ order: 803
                   'class="user-match" ' +
                   'title="' +
                     vm.profile.name +
-                    ' can give technical talks in your preferred language.' +
+                    ' bisa memberikan seminar teknis di bahasa yang kalian inginkan.' +
                   '"' +
                 '\>' + language + '</span>'
               )

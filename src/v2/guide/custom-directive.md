@@ -1,12 +1,12 @@
 ---
-title: Custom Directives
+title: Direktif Kustom
 type: guide
 order: 302
 ---
 
-## Intro
+## Pendahuluan
 
-In addition to the default set of directives shipped in core (`v-model` and `v-show`), Vue also allows you to register your own custom directives. Note that in Vue 2.0, the primary form of code reuse and abstraction is components - however there may be cases where you need some low-level DOM access on plain elements, and this is where custom directives would still be useful. An example would be focusing on an input element, like this one:
+Sebagai tambahan kepada kumpulan direktif standar yang terdapat dalam inti (`v-model` and `v-show`), Vue juga mengizinkan kalian untuk mendaftarkan direktif-direktif kustom kalian sendiri. Perlu diperhatikan bahwa pada Vue 2.0, bentuk dasar dari penggunaan ulang kode dan abstraksi adalah komponen-komponen - namun ada banyak kasus dimana kalian membutuhkan beberapa akses _low-level DOM_ pada elemen-elemen sederhana, seperti ini:
 
 {% raw %}
 <div id="simplest-directive-example" class="demo">
@@ -24,25 +24,25 @@ new Vue({
 </script>
 {% endraw %}
 
-When the page loads, that element gains focus (note: `autofocus` doesn't work on mobile Safari). In fact, if you haven't clicked on anything else since visiting this page, the input above should be focused now. Now let's build the directive that accomplishes this:
+Ketika memuat halaman, elemen tersebut mendapatkan fokus (catatan: `autocofus` tidak berjalan pada Safari versi _mobile_). Kenyataannya, jika kalian belum melakukan klik pada bagian manapun sejak mengunjungi halaman ini, isian di atas seharusnya difokuskan untuk saat ini. Sekarang mari kita membuat direktif yang dapat menyelesaikan hal ini:
 
 ``` js
-// Register a global custom directive called `v-focus`
+// Mendaftarkan sebuah direktif kustom global yang bernama `v-focus`
 Vue.directive('focus', {
-  // When the bound element is inserted into the DOM...
+  // Ketika ikatan elemen dimasukkan ke dalam DOM...
   inserted: function (el) {
-    // Focus the element
+    // Fokuskan elemen
     el.focus()
   }
 })
 ```
 
-If you want to register a directive locally instead, components also accept a `directives` option:
+Jika kalian ingin mendaftarkan sebuah direktif secara lokal sebagai gantinya, komponen-komponen juga menerima sebuah pilihan `directives`:
 
 ``` js
 directives: {
   focus: {
-    // directive definition
+    // pendefinisian direktif
     inserted: function (el) {
       el.focus()
     }
@@ -50,48 +50,48 @@ directives: {
 }
 ```
 
-Then in a template, you can use the new `v-focus` attribute on any element, like this:
+Selanjutnya dalam sebuah _template_, kalian dapat menggunakan atribut baru `v-focus` pada elemen manapun, seperti berikut:
 
 ``` html
 <input v-focus>
 ```
 
-## Hook Functions
+## Fungsi Hook
 
-A directive definition object can provide several hook functions (all optional):
+Sebuah definisi obyek direktif dapat menyediakan beberapa fungsi-fungsi _hook_ (semuanya opsional):
 
-- `bind`: called only once, when the directive is first bound to the element. This is where you can do one-time setup work.
+- `bind`: hanya dipanggil sekali, ketika direktif terikat pertama kali pada sebuah elemen. Hal ini dimana kalian dapat melakukan pekerjaan pengaturan yang dilakukan sekali saja.
 
-- `inserted`: called when the bound element has been inserted into its parent node (this only guarantees parent node presence, not necessarily in-document).
+- `inserted`: dipanggil ketika ikatan elemen telah dimasukkan ke dalam _parent node_ (ini hanya menjamin keberadaan _parent node_, tidak harus dalam-dokumen).
 
-- `update`: called after the containing component's VNode has updated, __but possibly before its children have updated__. The directive's value may or may not have changed, but you can skip unnecessary updates by comparing the binding's current and old values (see below on hook arguments).
+- `update`: dipanggil setelah isi komponen VNode telah diperbarui, __tapi memungkinkan sebelum child diperbarui__. Nilai direktif mungkin berubah atau mungkin tidak berubah, tapi kalian bisa melewati pembaruan yang tidak perlu dengan membandingkan _binding_ saat ini dan nilai lama (Lihat di bawah ini pada argumen _hook_).
 
-<p class="tip">We'll cover VNodes in more detail [later](./render-function.html#The-Virtual-DOM), when we discuss [render functions](./render-function.html).</p>
+<p class="tip">Kita akan membahas VNodes lebih rinci [nanti](./render-function.html#The-Virtual-DOM), ketika kita mendiskusikan [fungsi render](./render-function.html).</p>
 
-- `componentUpdated`: called after the containing component's VNode __and the VNodes of its children__ have updated.
+- `componentUpdated`: dipanggil setelah isi komponent VNode __dan VNode dari child__ yang telah diperbarui.
 
-- `unbind`: called only once, when the directive is unbound from the element.
+- `unbind`: hanya dipanggil sekali, ketika direktif terlepas dari elemen.
 
-We'll explore the arguments passed into these hooks (i.e. `el`, `binding`, `vnode`, and `oldVnode`) in the next section.
+Kita akan menjelajahi argumen-argumen yang dapat dimasukkan kepada _hook_ tersebut (contoh. `el`, `binding`, `vnode`, dan `oldVnode`) pada bagian selanjutnya.
 
-## Directive Hook Arguments
+## Argumen Direktif Hook
 
-Directive hooks are passed these arguments:
+Direktif _hook_ menggunakan argumen-argumen sebagai berikut:
 
-- `el`: The element the directive is bound to. This can be used to directly manipulate the DOM.
-- `binding`: An object containing the following properties.
-  - `name`: The name of the directive, without the `v-` prefix.
-  - `value`: The value passed to the directive. For example in `v-my-directive="1 + 1"`, the value would be `2`.
-  - `oldValue`: The previous value, only available in `update` and `componentUpdated`. It is available whether or not the value has changed.
-  - `expression`: The expression of the binding as a string. For example in `v-my-directive="1 + 1"`, the expression would be `"1 + 1"`.
-  - `arg`: The argument passed to the directive, if any. For example in `v-my-directive:foo`, the arg would be `"foo"`.
-  - `modifiers`: An object containing modifiers, if any. For example in `v-my-directive.foo.bar`, the modifiers object would be `{ foo: true, bar: true }`.
-- `vnode`: The virtual node produced by Vue's compiler. See the [VNode API](../api/#VNode-Interface) for full details.
-- `oldVnode`: The previous virtual node, only available in the `update` and `componentUpdated` hooks.
+- `el`: Elemen yang mengikat suatu direktif. Elemen ini yang akan digunakan secara langsung untuk memanipulasi DOM.
+- `binding`: Sebuah obyek yang berisi properti-properti sebagai berikut:
+  - `name`: Nama direktif, tanpa prefix `v-`.
+  - `value`: Nilai yang dilewatkan pada direktif. Contoh dalam `v-my-directive="1 + 1"`, nilainya adalah `2`.
+  - `oldValue`: Nilai sebelumnya, hanya tersedia pada `update` dan `componentUpdated`. Argumen ini tersedia apakah nilai sudah berubah atau tidak.
+  - `expression`: Ekspresi dari sebuah _binding_ sebagai _string_. Contoh pada `v-my-directive="1 + 1"`, ekspresi yang dimaksud adalah `"1 + 1"`.
+  - `arg`: Argumen yang dilewatkan kepada direktif, jika ada. Contoh pada `v-my-directive:foo`, `arg` yang dimaksud adalah `"foo"`.
+  - `modifiers`: Sebuah obyek yang berisi kumpulan _modifier_, jika ada. Contoh pada `v-my-directive.foo.bar`, kumpulan obyek _modifier_ yang dimaksud adalah `{ foo: true, bar: true }`.
+- `vnode`: Merupakan _virtual node_ yang dihasilkan oleh kompiler Vue. Lihat [API VNode](../api/#VNode-Interface) untuk penjelasan lebih rinci.
+- `oldVnode`: Merupakan _virtual node_ yang dihasilkan sebelumnya, hanya tersedia pada _hook_ `update` dan `componentUpdated`.
 
-<p class="tip">Apart from `el`, you should treat these arguments as read-only and never modify them. If you need to share information across hooks, it is recommended to do so through element's [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
+<p class="tip">Selain `el`, kalian seharusnya memperlakukan argumen-argumen tersebut sebagai _read-only_ dan tidak pernah melakukan perubahan terhadapnya. Jika kalian ingin berbagi informasi terhadap _hook_-_hook_ yang ada, disarankan untuk melakukannya melalui elemen [dataset](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset).</p>
 
-An example of a custom directive using some of these properties:
+Contoh dari direktif kustom yang menggunakan beberapa properti sebagai berikut:
 
 ``` html
 <div id="hook-arguments-example" v-demo:foo.a.b="message"></div>
@@ -143,9 +143,9 @@ new Vue({
 </script>
 {% endraw %}
 
-## Function Shorthand
+## Fungsi Singkatan
 
-In many cases, you may want the same behavior on `bind` and `update`, but don't care about the other hooks. For example:
+Di beberapa kasus, kalian mungkin ingin perilaku yang sama pada `bind` dan `update`, akan tetapi tidak peduli terhadap _hook_ lainnya. Sebagai contoh berikut:
 
 ``` js
 Vue.directive('color-swatch', function (el, binding) {
@@ -153,9 +153,9 @@ Vue.directive('color-swatch', function (el, binding) {
 })
 ```
 
-## Object Literals
+## Obyek Literal
 
-If your directive needs multiple values, you can also pass in a JavaScript object literal. Remember, directives can take any valid JavaScript expression.
+Jika direktif kalian membutuhkan lebih dari satu nilai, kalian dapat juga melewatkan sebuah obyek literal JavaScript. Perlu diingat, direktif-direktif dapat mengambil nilai valid apapun dari ekspresi JavaScript.
 
 ``` html
 <div v-demo="{ color: 'white', text: 'hello!' }"></div>

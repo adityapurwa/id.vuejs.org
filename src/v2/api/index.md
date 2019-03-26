@@ -509,6 +509,15 @@ type: api
 
   A list/hash of attributes that are exposed to accept data from the parent component. It has an Array-based simple syntax and an alternative Object-based syntax that allows advanced configurations such as type checking, custom validation and default values.
 
+  With Object-based syntax, you can use following options:
+    - **type:** can be one of the following native constructors: `String`, `Number`, `Boolean`, `Array`, `Object`, `Date`, `Function`, `Symbol`, any custom constructor function or an array of those. Will check if a prop has a given type, and will throw a warning if it doesn't. [More information](../guide/components-props.html#Prop-Types) on prop types.
+    - **default:** `any`
+    Specifies a default value for the prop. If the prop is not passed, this value will be used instead. Object or array defaults must be returned from a factory function.
+    - **required:** `Boolean`
+    Defines if the prop is required. In a non-production environment, a console warning will be thrown if this value is truthy and the prop is not passed.
+    - **validator:** `Function`
+    Custom validator function that takes the prop value as the sole argument. In a non-production environment, a console warning will be thrown if this function returns a falsy value (i.e. the validation fails). You can read more about prop validation [here](../guide/components-props.html#Prop-Validation).
+
 - **Example:**
 
   ``` js
@@ -535,7 +544,7 @@ type: api
   })
   ```
 
-- **See also:** [Props](../guide/components.html#Props)
+- **See also:** [Props](../guide/components-props.html)
 
 ### propsData
 
@@ -1376,7 +1385,9 @@ type: api
 
 - **Details:**
 
-  Used to programmatically access content [distributed by slots](../guide/components.html#Content-Distribution-with-Slots). Each [named slot](../guide/components.html#Named-Slots) has its own corresponding property (e.g. the contents of `slot="foo"` will be found at `vm.$slots.foo`). The `default` property contains any nodes not included in a named slot.
+  Used to programmatically access content [distributed by slots](../guide/components.html#Content-Distribution-with-Slots). Each [named slot](../guide/components.html#Named-Slots) has its own corresponding property (e.g. the contents of `v-slot:foo` will be found at `vm.$slots.foo`). The `default` property contains either nodes not included in a named slot or contents of `v-slot:default`.
+
+  **Note:** `v-slot:foo` is supported in v2.6+. For older versions, you can use the [deprecated syntax](../guide/components-slots.html#Deprecated-Syntax).
 
   Accessing `vm.$slots` is most useful when writing a component with a [render function](../guide/render-function.html).
 
@@ -1384,15 +1395,15 @@ type: api
 
   ```html
   <blog-post>
-    <h1 slot="header">
-      About Me
-    </h1>
+    <template v-slot:header>
+      <h1>About Me</h1>
+    </template>
 
     <p>Here's some page content, which will be included in vm.$slots.default, because it's not inside a named slot.</p>
 
-    <p slot="footer">
-      Copyright 2016 Evan You
-    </p>
+    <template v-slot:footer>
+      <p>Copyright 2016 Evan You</p>
+    </template>
 
     <p>If I have some content down here, it will also be included in vm.$slots.default.</p>.
   </blog-post>
@@ -1414,7 +1425,7 @@ type: api
   ```
 
 - **See also:**
-  - [`<slot>` Component](#slot-1)
+  - [`<slot>` Component](#slot)
   - [Content Distribution with Slots](../guide/components.html#Content-Distribution-with-Slots)
   - [Render Functions - Slots](../guide/render-function.html#Slots)
 
@@ -1439,7 +1450,7 @@ type: api
   2. All `$slots` are now also exposed on `$scopedSlots` as functions. If you work with render functions, it is now recommended to always access slots via `$scopedSlots`, whether they currently use a scope or not. This will not only make future refactors to add a scope simpler, but also ease your eventual migration to Vue 3, where all slots will be functions.
 
 - **See also:**
-  - [`<slot>` Component](#slot-1)
+  - [`<slot>` Component](#slot)
   - [Scoped Slots](../guide/components.html#Scoped-Slots)
   - [Render Functions - Slots](../guide/render-function.html#Slots)
 

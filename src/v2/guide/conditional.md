@@ -1,27 +1,27 @@
 ---
-title: Conditional Rendering
+title: Rendering Kondisional
 type: guide
 order: 7
 ---
 
 ## `v-if`
 
-The directive `v-if` is used to conditionally render a block. The block will only be rendered if the directive's expression returns a truthy value.
+Direktif `v-if` digunakan untuk menampilkan suatu blok ketika suatu kondisi terpenuhi (bernilai _true_).
 
 ``` html
-<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-if="awesome">Vue itu keren!</h1>
 ```
 
-It is also possible to add an "else block" with `v-else`:
+Kalian juga bisa menggunakan `v-else` untuk menampilkan blok ketika kondisi sebelumnya tidak terpenuhi.
 
 ``` html
-<h1 v-if="awesome">Vue is awesome!</h1>
+<h1 v-if="awesome">Vue itu keren!</h1>
 <h1 v-else>Oh no 😢</h1>
 ```
 
-### Conditional Groups with `v-if` on `<template>`
+### Menggabungkan Kondisi dengan `v-if` di `<template>`
 
-Because `v-if` is a directive, it has to be attached to a single element. But what if we want to toggle more than one element? In this case we can use `v-if` on a `<template>` element, which serves as an invisible wrapper. The final rendered result will not include the `<template>` element.
+Karena `v-if` adalah direktif, maka hanya bisa dipasang di satu elemen. Bagaimana caranya jika ingin menampilkan lebih dari satu elemen ketika suatu kondisi terpenuhi? Kalian bisa membungkus elemen yang ingin ditampilkan di dalam elemen `<template>` yang diberi `v-if`. Elemen `<template>` tidak akan ikut serta ditampilkan karena bersifat sebagai pembungkus.
 
 ``` html
 <template v-if="ok">
@@ -33,24 +33,24 @@ Because `v-if` is a directive, it has to be attached to a single element. But wh
 
 ### `v-else`
 
-You can use the `v-else` directive to indicate an "else block" for `v-if`:
+Sama seperti contoh sebelumnya, kalian bisa menggunakan direktif `v-else` untuk menampilkan elemen ketika kondisi diatasnya bernilai _false_:
 
 ``` html
 <div v-if="Math.random() > 0.5">
-  Now you see me
+  Sekarang kelihatan
 </div>
 <div v-else>
-  Now you don't
+  Sekarang tidak
 </div>
 ```
 
-A `v-else` element must immediately follow a `v-if` or a `v-else-if` element - otherwise it will not be recognized.
+Direktif `v-else` harus berada di bawah elemen yang berdirektif `v-if` atau `v-else-if` supaya bisa diproses oleh Vue.
 
 ### `v-else-if`
 
-> New in 2.1.0+
+> Baru di versi 2.1.0+
 
-The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. It can also be chained multiple times:
+Direktif `v-else-if` digunakan untuk memberikan kondisi alternatif lainnya ketika kondisi sebelumnya tidak terpenuhi, dan bisa digunakan berkali-kali:
 
 ```html
 <div v-if="type === 'A'">
@@ -67,11 +67,11 @@ The `v-else-if`, as the name suggests, serves as an "else if block" for `v-if`. 
 </div>
 ```
 
-Similar to `v-else`, a `v-else-if` element must immediately follow a `v-if` or a `v-else-if` element.
+Sama seperti `v-else`, direktif `v-else-if` harus berada di bawah elemen yang berdirektif `v-if` atau `v-else-if`.
 
-### Controlling Reusable Elements with `key`
+### Mengatur Penggunaan Ulang Komponen dengan `key`
 
-Vue tries to render elements as efficiently as possible, often re-using them instead of rendering from scratch. Beyond helping make Vue very fast, this can have some useful advantages. For example, if you allow users to toggle between multiple login types:
+Vue akan mencoba menampilkan elemen seefisien mungkin, seperti menggunakan ulang elemen-elemen yang sudah ada dibanding membuatnya lagi dari awal. Selain membuat Vue bekerja lebih cepat, ada kelebihan lainnya. Contohnya, jika kalian membolehkan pengguna untuk masuk dengan beberapa jenis _login_:
 
 ``` html
 <template v-if="loginType === 'username'">
@@ -84,9 +84,9 @@ Vue tries to render elements as efficiently as possible, often re-using them ins
 </template>
 ```
 
-Then switching the `loginType` in the code above will not erase what the user has already entered. Since both templates use the same elements, the `<input>` is not replaced - just its `placeholder`.
+Ketika `loginType` di atas dirubah, Vue tidak akan menghapus data yang sudah dimasukan oleh pengguna. Karena kedua templat menggunakan elemen yang sama, `<input>` tidak akan ditindih, hanya nilai `placeholder`-nya saja.
 
-Check it out for yourself by entering some text in the input, then pressing the toggle button:
+Kalian bisa mencobanya sendiri dengan menuliskan beberapa teks, lalu menekan tombol _toggle_:
 
 {% raw %}
 <div id="no-key-example" class="demo">
@@ -117,7 +117,7 @@ new Vue({
 </script>
 {% endraw %}
 
-This isn't always desirable though, so Vue offers a way for you to say, "These two elements are completely separate - don't re-use them." Add a `key` attribute with unique values:
+Kadang kita tidak membutuhkan efek seperti ini, karena itu Vue memberikan cara untuk menyatakan: "Kedua elemen ini berbeda, jangan digunakan ulang!"; dengan menambahkan atribut `key` dengan nilai yang berbeda/unik.
 
 ``` html
 <template v-if="loginType === 'username'">
@@ -130,7 +130,7 @@ This isn't always desirable though, so Vue offers a way for you to say, "These t
 </template>
 ```
 
-Now those inputs will be rendered from scratch each time you toggle. See for yourself:
+Sekarang input diatas akan dirender ulang setiap kali nilai `loginType` berubah:
 
 {% raw %}
 <div id="key-example" class="demo">
@@ -161,32 +161,32 @@ new Vue({
 </script>
 {% endraw %}
 
-Note that the `<label>` elements are still efficiently re-used, because they don't have `key` attributes.
+Catat bahwa elemen `<label>` masih digunakan ulang supaya lebih efisien, karena tidak diberi atribut `key`.
 
 ## `v-show`
 
-Another option for conditionally displaying an element is the `v-show` directive. The usage is largely the same:
+Opsi lain untuk menampilkan elemen ketika suatu kondisi terpenuhi adalah menggunakan direktif `v-show`, caranya kurang lebih mirip:
 
 ``` html
 <h1 v-show="ok">Hello!</h1>
 ```
 
-The difference is that an element with `v-show` will always be rendered and remain in the DOM; `v-show` only toggles the `display` CSS property of the element.
+Bedanya adalah elemen dengan direktif `v-show` akan selalu ditampilkan dan tinggal di DOM; karena `v-show` hanya merubah nilai properti CSS `display` dari elemen tersebut.
 
-<p class="tip">Note that `v-show` doesn't support the `<template>` element, nor does it work with `v-else`.</p>
+<p class="tip">Catat bahwa `v-show` tidak bisa digunakan di elemen `<template>`, dan tidak bisa digunakan dengan `v-else`.</p>
 
 ## `v-if` vs `v-show`
 
-`v-if` is "real" conditional rendering because it ensures that event listeners and child components inside the conditional block are properly destroyed and re-created during toggles.
+`v-if` adalah rendering kondisional yang "sesungguhnya" karena memastikan bahwa semua _event listener_ dan komponen di dalamnya akan dihapus dan dbuat ulang disetiap perubahan _toggle_.
 
-`v-if` is also **lazy**: if the condition is false on initial render, it will not do anything - the conditional block won't be rendered until the condition becomes true for the first time.
+`v-if` juga bersifat **_lazy_**: jika kondisinya tidak terpenuhi ketika pertama kali ditampilkan, tidak akan terjadi apa-apa - blok kondisionalnya tida  akan ditampilkan sampai kondisinya bernilai _true_.
 
-In comparison, `v-show` is much simpler - the element is always rendered regardless of initial condition, with CSS-based toggling.
+Sedangkan`v-show` lebih sederhana, karena elemennya akan selalu ditampilkan, hanya saja nilai properti CSS `display`-nya saja yang dirubah.
 
-Generally speaking, `v-if` has higher toggle costs while `v-show` has higher initial render costs. So prefer `v-show` if you need to toggle something very often, and prefer `v-if` if the condition is unlikely to change at runtime.
+Secara umum, `v-if` berat ketika terjadi peralihan kondisi, sedangkan `v-show` berat saat elemen pertama kali ditampilkan. Jadi gunakan `v-show` jika sering terjadi peralihan kondisi, dan gunakan `v-if` jika tidak sering.
 
 ## `v-if` with `v-for`
 
-<p class="tip">Using `v-if` and `v-for` together is **not recommended**. See the [style guide](/v2/style-guide/#Avoid-v-if-with-v-for-essential) for further information.</p>
+<p class="tip">Penggunaan `v-if` dan `v-for` secara bersamaan **tidak direkomendasikan**. Lihat [panduan gaya](/v2/style-guide/#Avoid-v-if-with-v-for-essential) untuk informasi lebih lanjut.</p>
 
-When used together with `v-if`, `v-for` has a higher priority than `v-if`. See the <a href="../guide/list.html#V-for-and-v-if">list rendering guide</a> for details.
+Ketika digunakan secara bersamaan dengan `v-if`, `v-for` punya prioritas yang lebih tinggi dibandingkan `v-if`. Lihat <a href="../guide/list.html#V-for-and-v-if">panduan menampilkan daftar/_list_</a> untuk detailnya.

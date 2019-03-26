@@ -1,19 +1,20 @@
 ---
-title: Mixins
+title: Mixin
 type: guide
 order: 301
 ---
 
-## Basics
+## Dasar-dasar Mixin
 
-Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options. When a component uses a mixin, all options in the mixin will be "mixed" into the component's own options.
+Mixin adalah cara fleksibel untuk mendistribusikan fungsionalitas komponen Vue yang bisa digunakan berulang kali. Sebuah objek mxin bisa berisi opsi-opsi komponen. Ketika komponen menggunakan sebuah mixin, semua opsi-opsi yang ada di mixin tersebut akan di "mix" (campur) dengan opsi-opsi komponen itu sendiri.
 
-<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/next-level-vue/mixins" target="_blank" rel="noopener" title="Mixins Tutorial">Watch a video explanation on Vue Mastery</a></div>
 
-Example:
+<div class="vue-mastery"><a href="https://www.vuemastery.com/courses/next-level-vue/mixins" target="_blank" rel="noopener" title="Mixins Tutorial">Lihat penjelasan di Vue Mastery</a></div>
+
+Contoh:
 
 ``` js
-// define a mixin object
+// buat objek mixin
 var myMixin = {
   created: function () {
     this.hello()
@@ -25,7 +26,7 @@ var myMixin = {
   }
 }
 
-// define a component that uses this mixin
+// buat komponen yang memanggil mixin di atas
 var Component = Vue.extend({
   mixins: [myMixin]
 })
@@ -33,11 +34,11 @@ var Component = Vue.extend({
 var component = new Component() // => "hello from mixin!"
 ```
 
-## Option Merging
+## Penggabungan Opsi
 
-When a mixin and the component itself contain overlapping options, they will be "merged" using appropriate strategies.
+Ketika ada opsi dari mixin dan komponen yang saling bentrok, mereka akan digabungkan dengan beberapa cara.
 
-For example, data objects undergo a recursive merge, with the component's data taking priority in cases of conflicts.
+Contoh, opsi data akan digabungkan secara rekursif, dengan data komponen yang akan menindih data mixin ketika terjadi bentrokan.
 
 ``` js
 var mixin = {
@@ -64,7 +65,7 @@ new Vue({
 })
 ```
 
-Hook functions with the same name are merged into an array so that all of them will be called. Mixin hooks will be called **before** the component's own hooks.
+Fungsi _hook_ dengan nama yang sama juga akan digabungkan menjadi sebuah array yang masing-masing akan dipanggil. Hook dari mixin akan dipanggil **sebelum** hook komponen itu sendiri.
 
 ``` js
 var mixin = {
@@ -84,7 +85,7 @@ new Vue({
 // => "component hook called"
 ```
 
-Options that expect object values, for example `methods`, `components` and `directives`, will be merged into the same object. The component's options will take priority when there are conflicting keys in these objects:
+Opsi yang menerima nilai dalam bentuk objek, contoh `methods`, `components`, dan `directivces`, akan digabungkan menjadi satu objek, di mana opsi dari komponen tersebut akan menindih opsi yang ada di mixin ketika ada _keys_ yang sama di objek tersebut:
 
 ``` js
 var mixin = {
@@ -115,14 +116,15 @@ vm.bar() // => "bar"
 vm.conflicting() // => "from self"
 ```
 
+Ingat, strategi penggabungan yang sama juga digunakan di `Vue.extend()`.
 Note that the same merge strategies are used in `Vue.extend()`.
 
-## Global Mixin
+## Mixin Global
 
-You can also apply a mixin globally. Use with caution! Once you apply a mixin globally, it will affect **every** Vue instance created afterwards. When used properly, this can be used to inject processing logic for custom options:
+Kalian bisa memanggil mixin secara global. Gunakan dengan hati-hati! Ketika mixin dipanggil secara global, mixin tersebut akan diterapkan di **semua** instan Vue yang akan dibuat. Ketika digunakan dengan benar, kita bisa memproses opsi kustom melalui mixin:
 
 ``` js
-// inject a handler for `myOption` custom option
+// sisipkan pemroses untuk opsi `myOption`
 Vue.mixin({
   created: function () {
     var myOption = this.$options.myOption
@@ -138,11 +140,12 @@ new Vue({
 // => "hello!"
 ```
 
-<p class="tip">Use global mixins sparsely and carefully, because it affects every single Vue instance created, including third party components. In most cases, you should only use it for custom option handling like demonstrated in the example above. It's also a good idea to ship them as [Plugins](plugins.html) to avoid duplicate application.</p>
+<p class="tip">
+Gunakan mixin global dengan bijak, karena mixin ini akan diterapkan di semua instan Vue yang akan di buat, termasuk komponen pihak ketiga. Umumnya, kalian hanya akan menggunakannya untuk memproses opsi kustom seperti contoh di atas. Mixin Global lebih baik didistribusikan sebagai [Plugin](plugins.html) untuk menghindari duplikasi.</p>
 
-## Custom Option Merge Strategies
+## Strategi Penggabungan Opsi Kustom
 
-When custom options are merged, they use the default strategy which overwrites the existing value. If you want a custom option to be merged using custom logic, you need to attach a function to `Vue.config.optionMergeStrategies`:
+Ketika opsi kustom akan digabungkan, mereka menggunakan strategi penggabungan yang akan menindih nilai yang sudah ada. Jika kalian ingin merubah proses penggabungan ini, kalian bisa membuat fungsi `Vue.config.optionsMergeStrategies`:
 
 ``` js
 Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
@@ -150,14 +153,14 @@ Vue.config.optionMergeStrategies.myOption = function (toVal, fromVal) {
 }
 ```
 
-For most object-based options, you can use the same strategy used by `methods`:
+Umumnya, untuk opsi bernilai objek, kalian bisa menggunakan strategi yang digunakan untuk `methods`:
 
 ``` js
 var strategies = Vue.config.optionMergeStrategies
 strategies.myOption = strategies.methods
 ```
 
-A more advanced example can be found on [Vuex](https://github.com/vuejs/vuex)'s 1.x merging strategy:
+Contoh yang lebih lengkap bisa dilihat di strategi penggabungan [Vuex](https://github.com/vuejs/vuex) 1.x:
 
 ``` js
 const merge = Vue.config.optionMergeStrategies.computed

@@ -12,9 +12,9 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [x] Pengenalan / Introduction
 - [x] Instan Vue / The Vue Instance
 - [ ] Sintaks Templat / Template Syntax
-- [ ] Properti Terkomputasi dan _Watchers_ / Computed Properties and Watchers
+- [x] Properti Terkomputasi dan Pengamat (_Watcher_) / Computed Properties and Watchers
 - [ ] Kelas dan _Style Bindings_ / Class and Style Bindings
-- [ ] Rendering Kondisional / Conditional Rendering
+- [x] Rendering Kondisional / Conditional Rendering
 - [ ] Rendering Daftar / List Rendering
 - [ ] Penanganan _Event_ / Event Handling
 - [ ] _Binding_ Masukan Formulir / Form Input Bindings
@@ -30,14 +30,14 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Transisi Masuk dan Keluar / Enter and Leave Transitions
 - [ ] Transisi State / State's Transitions
 
-- [ ] Mixins / Mixins 
-- [ ] Direktif Kustom / Custom Directives
+- [x] Mixins / Mixins 
+- [x] Direktif Kustom / Custom Directives
 - [ ] Fungsi Render & JSX / Render Functions and JSX
 
 - [x] Plugin / Plugins
-- [ ] Filter / Filters
+- [x] Filter / Filters
 - [ ] Komponen Satu Berkas (KSB) / Single File Components (SFC)
-- [ ] Unit Testing / Unit Testing
+- [x] Unit Testing / Unit Testing
 - [ ] Dukungan TypeScript / TypeScript Support
 - [x] Peluncuran Produksi / Production Deployment
 
@@ -51,7 +51,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [ ] Migrasi dari Vuex 0.6.x ke 1.0 / Migrating from Vux 0.6.x to 1.0
 - [x] Perbandingan dengan Framework Lainnya / Comparison with Other Frameworks
 - [x] Gabung dengan Komunitasi Vue.js / Join the Vue.js Community!
-- [ ] Berkenalan dengan Tim / Meet the Team
+- [x] Berkenalan dengan Tim / Meet the Team
 
 Jika kalian ingin berkontribusi, pilih dari salah satu halaman di atas dan buat isu GitHub dengan format:
 

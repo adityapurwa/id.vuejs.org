@@ -1,20 +1,20 @@
 ---
-title: Filters
+title: Filter
 type: guide
 order: 305
 ---
 
-Vue.js allows you to define filters that can be used to apply common text formatting. Filters are usable in two places: **mustache interpolations and `v-bind` expressions** (the latter supported in 2.1.0+). Filters should be appended to the end of the JavaScript expression, denoted by the "pipe" symbol:
+Kalian bisa mendefinisikan sebuah _filter_ untuk melakukan proses _formatting_ sebuah teks di Vue.js. Filter bisa digunakan di dua tempat: di antara dua kurawal, atau di dalam ekspresi `v-bind` (didukung di versi 2.1.0 ke atas). Filter dipanggil dengan cara menambahkan tanda "pipa" di akhir ekspresi JavaScript.
 
 ``` html
-<!-- in mustaches -->
+<!-- antar dua kurawal / mustache -->
 {{ message | capitalize }}
 
-<!-- in v-bind -->
+<!-- di v-bind -->
 <div v-bind:id="rawId | formatId"></div>
 ```
 
-You can define local filters in a component's options:
+Kalian bisa mendefinisikan filter lokal melalui opsi sebuah komponen:
 
 ``` js
 filters: {
@@ -26,7 +26,7 @@ filters: {
 }
 ```
 
-or define a filter globally before creating the Vue instance:
+atau definisikan filter global sebelum membuat instan Vue:
 
 ``` js
 Vue.filter('capitalize', function (value) {
@@ -40,7 +40,7 @@ new Vue({
 })
 ```
 
-Below is an example of our `capitalize` filter being used:
+Di bawah adalah contoh penggunaan filter `capitalize`:
 
 {% raw %}
 <div id="example_1" class="demo">
@@ -66,20 +66,20 @@ Below is an example of our `capitalize` filter being used:
 </script>
 {% endraw %}
 
-The filter's function always receives the expression's value (the result of the former chain) as its first argument. In the above example, the `capitalize` filter function will receive the value of `message` as its argument.
+Setiap fungsi filter mempunyai parameter pertama yang berisi nilai dari ekspresi sebelum filter tersebut. Di contoh atas, fungsi `capitalize` akan menerima nilai dari variabel `message` sebagai parameter pertamanya.
 
-Filters can be chained:
+Filter bisa digabungkan:
 
 ``` html
 {{ message | filterA | filterB }}
 ```
 
-In this case, `filterA`, defined with a single argument, will receive the value of `message`, and then the `filterB` function will be called with the result of `filterA` passed into `filterB`'s single argument.
+Dalam kasus ini, `filterA`, akan menerima nilai dari `message`, lalu `filterB` akan menerima hasil dari `filterA`.
 
-Filters are JavaScript functions, therefore they can take arguments:
+Filter adalah fungsi JavaScript biasa, sehingga kita bisa memanggilnya dengan parameter lain juga:
 
 ``` html
 {{ message | filterA('arg1', arg2) }}
 ```
 
-Here `filterA` is defined as a function taking three arguments. The value of `message` will be passed into the first argument. The plain string `'arg1'` will be passed into the `filterA` as its second argument, and the value of expression `arg2` will be evaluated and passed in as the third argument.
+Di sini `filterA` didefinisikan sebagai fungsi yang menerima tiga parameter. Nilai variabel `message` akan masuk sebagai parameter pertama. Sedangkan teks `'arg1'` akan masuk sebagai parameter kedua, dan nilai dari `arg2` akan masuk sebagai parameter ketiga.
