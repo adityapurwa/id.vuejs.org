@@ -36,7 +36,7 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 
 - [x] Plugin / Plugins
 - [x] Filter / Filters
-- [ ] Komponen Satu Berkas (KSB) / Single File Components (SFC)
+- [x] Komponen Satu Berkas (KSB) / Single File Components (SFC)
 - [x] Unit Testing / Unit Testing
 - [ ] Dukungan TypeScript / TypeScript Support
 - [x] Peluncuran Produksi / Production Deployment
