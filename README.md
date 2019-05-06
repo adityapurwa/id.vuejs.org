@@ -11,9 +11,9 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 - [x] Pemasangan / Installation
 - [x] Pengenalan / Introduction
 - [x] Instan Vue / The Vue Instance
-- [ ] Sintaks Templat / Template Syntax
+- [x] Sintaks Templat / Template Syntax
 - [x] Properti Terkomputasi dan Pengamat (_Watcher_) / Computed Properties and Watchers
-- [ ] Kelas dan _Style Bindings_ / Class and Style Bindings
+- [x] Kelas dan _Style Bindings_ / Class and Style Bindings
 - [x] Rendering Kondisional / Conditional Rendering
 - [ ] Rendering Daftar / List Rendering
 - [ ] Penanganan _Event_ / Event Handling
@@ -32,13 +32,13 @@ Repositori ini sedang dalam proses penerjemahan, berikut perkembangan terkini da
 
 - [x] Mixins / Mixins 
 - [x] Direktif Kustom / Custom Directives
-- [ ] Fungsi Render & JSX / Render Functions and JSX
+- [x] Fungsi Render & JSX / Render Functions and JSX
 
 - [x] Plugin / Plugins
 - [x] Filter / Filters
-- [ ] Komponen Satu Berkas (KSB) / Single File Components (SFC)
+- [x] Komponen Satu Berkas (KSB) / Single File Components (SFC)
 - [x] Unit Testing / Unit Testing
-- [ ] Dukungan TypeScript / TypeScript Support
+- [x] Dukungan TypeScript / TypeScript Support
 - [x] Peluncuran Produksi / Production Deployment
 
 - [x] Routing / Routing

@@ -1,140 +1,140 @@
 ---
-title: TypeScript Support
+title: Dukungan TypeScript
 type: guide
 order: 403
 ---
 
-> [Vue CLI](https://cli.vuejs.org) provides built-in TypeScript tooling support. In our next major version of Vue (3.x), we are also planning to considerably improve our TypeScript support with built-in class based components API and TSX support.
+> [Vue CLI](https://cli.vuejs.org) menyediakan dukungan perangkat TypeScript. Pada versi mayor Vue (3.x) selanjurnya, kami juga berencana untuk meningkatkan dukungan TypeScript dengan komponen API berbasis _class_ yang sudah terintegrasi dan dukungan TSX.
 
-## Official Declaration in NPM Packages
+## Deklarasi Resmi pada Paket-Paket NPM
 
-A static type system can help prevent many potential runtime errors, especially as applications grow. That's why Vue ships with [official type declarations](https://github.com/vuejs/vue/tree/dev/types) for [TypeScript](https://www.typescriptlang.org/) - not only in Vue core, but also for [vue-router](https://github.com/vuejs/vue-router/tree/dev/types) and [vuex](https://github.com/vuejs/vuex/tree/dev/types) as well.
+Sistem penulisan statis dapat membantu mencegah banyak potensi kesalahan pada saat _runtime_, terutama saat aplikasi berkembang. Itulah mengapa Vue hadir dengan [deklarasi penulisan statis](https://github.com/vuejs/vue/tree/dev/types) untuk [TypeScript](https://www.typescriptlang.org/) - tidak hanya dalam inti Vue, melainkan juga pada [vue-router](https://github.com/vuejs/vue-router/tree/dev/types) dan [vuex](https://github.com/vuejs/vuex/tree/dev/types) juga.
 
-Since these are [published on NPM](https://cdn.jsdelivr.net/npm/vue/types/), and the latest TypeScript knows how to resolve type declarations in NPM packages, this means when installed via NPM, you don't need any additional tooling to use TypeScript with Vue.
+Karena sistem ini [dipublikasikan di NPM](https://cdn.jsdelivr.net/npm/vue/types/), dan TypeScript terkini bisa mengetahui bagaimana cara menyelesaikan deklarasi tipe dalam paket-paket NPM, ini berarti ketika melakukan pemasangan melalui NPM, kita tidak memerlukan perangkat tambahan lagi untuk menggunakan TypeScript bersama Vue.
 
-## Recommended Configuration
+## Konfigurasi yang Dianjurkan
 
 ``` js
 // tsconfig.json
 {
   "compilerOptions": {
-    // this aligns with Vue's browser support
+    // ini sesuai dengan dukungan peramban Vue
     "target": "es5",
-    // this enables stricter inference for data properties on `this`
+    // ini mengaktifkan inferensi yang lebih ketat untuk properti data pada `this`
     "strict": true,
-    // if using webpack 2+ or rollup, to leverage tree shaking:
+    // jika menggunakan webpack 2+ atau rollup, untuk memanfaatkan tree shaking
     "module": "es2015",
     "moduleResolution": "node"
   }
 }
 ```
 
-Note that you have to include `strict: true` (or at least `noImplicitThis: true` which is a part of `strict` flag) to leverage type checking of `this` in component methods otherwise it is always treated as `any` type.
+Perlu diingat bahwa kalian harus menyertakan `strict: true` (atau setidaknya `noImplicitThis: true` yang mana merupakan bagian dari tanda `strict`) untuk memanfaatkan pengecekan tipe dari `this` dalam fungsi komponen jika tidak itu akan selalu diberlakukan sebagai tipe `apapun`.
 
-See [TypeScript compiler options docs](https://www.typescriptlang.org/docs/handbook/compiler-options.html) for more details.
+Lihat [dokumentasi pilihan kompiler TypeScript](https://www.typescriptlang.org/docs/handbook/compiler-options.html) untuk lebih detail.
 
-## Development Tooling
+## Perangkat Pengembangan
 
-### Project Creation
+### Pembuatan Proyek
 
-[Vue CLI 3](https://github.com/vuejs/vue-cli) can generate new projects that use TypeScript. To get started:
+[Vue CLI 3](https://github.com/vuejs/vue-cli) dapat menghasilkan proyek baru yang menggunakan TypeScript. Untuk memulai:
 
 ```bash
-# 1. Install Vue CLI, if it's not already installed
+# 1. Pasang Vue CLI, jika belum terpasang
 npm install --global @vue/cli
 
-# 2. Create a new project, then choose the "Manually select features" option
+# 2. Buat proyeck baru, lalu pilih "Manually select features"
 vue create my-project-name
 ```
 
-### Editor Support
+### Dukungan Editor
 
-For developing Vue applications with TypeScript, we strongly recommend using [Visual Studio Code](https://code.visualstudio.com/), which provides great out-of-the-box support for TypeScript. If you are using [single-file components](./single-file-components.html) (SFCs), get the awesome [Vetur extension](https://github.com/vuejs/vetur), which provides TypeScript inference inside SFCs and many other great features.
+Untuk mengembangkan aplikasi Vue dengan TypeScript, kami sangat merekomendasikan menggunakan [Visual Studio Code](https://code.visualstudio.com/), yang banyak menyediakan dukungan bagus untuk TypeScript. Jika kalian menggunakan [Komponen satu berkas](./single-file-components.html) (SFCs), dapatkan [ekstensi Vetur](https://github.com/vuejs/vetur) yang luar biasa, menyediakan inferensi TypeScript di dalam SFCs dan banyak fitur menarik lainnya.
 
-[WebStorm](https://www.jetbrains.com/webstorm/) also provides out-of-the-box support for both TypeScript and Vue.
+[Webstorm](https://www.jetbrains.com/webstorm/) juga menyediakan dukungan lengkap untuk TypeScript dan Vue.
 
-## Basic Usage
+## Penggunaan Dasar
 
-To let TypeScript properly infer types inside Vue component options, you need to define components with `Vue.component` or `Vue.extend`:
+Agar TypeScript dapat menebak tipe di dalam pilihan komponen Vue, kalian perlu untuk mendefinisikan komponen-komponen `Vue.component` atau `Vue.extend`:
 
 ``` ts
 import Vue from 'vue'
 
 const Component = Vue.extend({
-  // type inference enabled
+  // type inference diaktifkan
 })
 
 const Component = {
-  // this will NOT have type inference,
-  // because TypeScript can't tell this is options for a Vue component.
+  // ini tidak akan memiliki type inference
+  // karena TypeScript tidak dapat menebak pilihan ini merupakan sebuah komponen Vue/
 }
 ```
 
-## Class-Style Vue Components
+## Komponen Class-Style Vue
 
-If you prefer a class-based API when declaring components, you can use the officially maintained [vue-class-component](https://github.com/vuejs/vue-class-component) decorator:
+Jika kalian lebih memilih sebuah _class-based_ API ketika mendeklarasikan komponen-komponen, kalian dapat menggunakan dekorator yang dikelola secara resmi [vue-class-component](https://github.com/vuejs/vue-class-component):
 
 ``` ts
 import Vue from 'vue'
 import Component from 'vue-class-component'
 
-// The @Component decorator indicates the class is a Vue component
+// dekorator @Component mengindikasikan class merupakan sebuah komponen Vue
 @Component({
-  // All component options are allowed in here
+  // Semua pilihan komponen diperbolehkan di sini
   template: '<button @click="onClick">Click!</button>'
 })
 export default class MyComponent extends Vue {
-  // Initial data can be declared as instance properties
+  // data awal dapat dideklarasikan sebagai properti instan
   message: string = 'Hello!'
 
-  // Component methods can be declared as instance methods
+  // fungsi komponen dapat dideklarasikan sebagai fungsi instan
   onClick (): void {
     window.alert(this.message)
   }
 }
 ```
 
-## Augmenting Types for Use with Plugins
+## Augmentasi Tipe untuk Penggunaan dengan Plugin
 
-Plugins may add to Vue's global/instance properties and component options. In these cases, type declarations are needed to make plugins compile in TypeScript. Fortunately, there's a TypeScript feature to augment existing types called [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
+Plugin bisa ditambahkan ke dalam properti instan global dan pilihan komponen. Pada kasus ini, deklarasi tipe dibutuhkan untuk melakukan kompilasi plugin dalam TypeScript. Untunglah, sudah ada fitur TypeScript untuk augmentasi tipe yang dinamakan [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation).
 
-For example, to declare an instance property `$myProperty` with type `string`:
+Contohnya, untuk mendeklarasikan properti instan `$myProperty` dengan tipe `string`:
 
 ``` ts
-// 1. Make sure to import 'vue' before declaring augmented types
+// 1. Pastikan untuk melakukan import `vue` sebelum mendeklarasikan tipe-tipe yang diaugmentasi
 import Vue from 'vue'
 
-// 2. Specify a file with the types you want to augment
-//    Vue has the constructor type in types/vue.d.ts
+// 2. spesifikasikan sebuah berkas dengan tipe yang ingin kalian augmentasikan
+//    Vue memiliki konstruktor tipe pada types/vue.d.ts
 declare module 'vue/types/vue' {
-  // 3. Declare augmentation for Vue
+  // 3. Deklarasikan augmentasi untuk Vue
   interface Vue {
     $myProperty: string
   }
 }
 ```
 
-After including the above code as a declaration file (like `my-property.d.ts`) in your project, you can use `$myProperty` on a Vue instance.
+Setelah menyertakan kode di atas sebagai sebuah berkas deklarasi (seperti `my-property.d.ts`) ke dalam proyek kalian, kalian bisa menggunaan `$myProperty` pada sebuah instan Vue.
 
 ```ts
 var vm = new Vue()
-console.log(vm.$myProperty) // This should compile successfully
+console.log(vm.$myProperty) // Ini harusnya dapat dikompilasi dengan sukses
 ```
 
-You can also declare additional global properties and component options:
+Kalian juga dapat mendeklarasikan properti global tambahan dan pilihan komponen:
 
 ```ts
 import Vue from 'vue'
 
 declare module 'vue/types/vue' {
-  // Global properties can be declared
-  // on the `VueConstructor` interface
+  // Properti global dapat dideklarasikan
+  // pada interface `VueConstructor`
   interface VueConstructor {
     $myGlobal: string
   }
 }
 
-// ComponentOptions is declared in types/options.d.ts
+// ComponentOptions dideklarasikan dalam types/options.d.ts
 declare module 'vue/types/options' {
   interface ComponentOptions<V extends Vue> {
     myOption?: string
@@ -142,21 +142,21 @@ declare module 'vue/types/options' {
 }
 ```
 
-The above declarations allow the following code to be compiled:
+Deklarasi di atas memungkinkan kode disusun sebagai berikut:
 
 ```ts
-// Global property
+// Properti global
 console.log(Vue.$myGlobal)
 
-// Additional component option
+// opsi komponen tambahan
 var vm = new Vue({
   myOption: 'Hello'
 })
 ```
 
-## Annotating Return Types
+## Anotasi Pengembalian Tipe
 
-Because of the circular nature of Vue's declaration files, TypeScript may have difficulties inferring the types of certain methods. For this reason, you may need to annotate the return type on methods like `render` and those in `computed`.
+Karena sudah sifat alami dari pendeklarasian berkas Vue, TypeScript mungkin mengalami kesulitan menyimpulkan tipe dari fungsi tertentu. Untuk alasan ini, kalian mungkin butuh untuk menambahkan keterangan kembalian tipe pada fungsi seperti `render` dan semua yang terlibat di dalam `computed`.
 
 ```ts
 import Vue, { VNode } from 'vue'
@@ -168,22 +168,22 @@ const Component = Vue.extend({
     }
   },
   methods: {
-    // need annotation due to `this` in return type
+    // membutuhkan anotasi karena `this` pada pengembalian tipe
     greet (): string {
       return this.msg + ' world'
     }
   },
   computed: {
-    // need annotation
+    // membutuhkan anotasi
     greeting(): string {
       return this.greet() + '!'
     }
   },
-  // `createElement` is inferred, but `render` needs return type
+  // `createElement` telah disimpulkan, tapi `render` membutuhkan kembalian tipe
   render (createElement): VNode {
     return createElement('div', this.greeting)
   }
 })
 ```
 
-If you find type inference or member completion isn't working, annotating certain methods may help address these problems. Using the `--noImplicitAny` option will help find many of these unannotated methods.
+Jika kalian menemukan hasil simpulan tipe atau penyelesaian anggota tidak berjalan, melakukan anotasi pada fungsi tertentu bisa dapat membantu mengatasi masalah ini. Menggunakan opsi `--noImplicitAny` akan membantu menemukan banyak fungsi yang belum dianotasikan.
