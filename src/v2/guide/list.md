@@ -1,17 +1,17 @@
 ---
-title: List Rendering
+title: Me-render Daftar
 type: guide
 order: 8
 ---
 
-## Mapping an Array to Elements with `v-for`
+## Memetakan sebuah Array ke Elemen dengan `v-for`
 
-We can use the `v-for` directive to render a list of items based on an array. The `v-for` directive requires a special syntax in the form of `item in items`, where `items` is the source data array and `item` is an **alias** for the array element being iterated on:
+Kita dapat menggunakan direksi `v-for` untuk me-render sebuah daftar _item_ berdasakan dari sebuah array. Direksi `v-for` membutuhkan sebuah sintaks spesial dalam bentuk `item in items`, dimana `items` adalah sumber data array dan `item` adalah **alias** untuk elemen array yang diperulangkan:
 
 ``` html
 <ul id="example-1">
   <li v-for="item in items">
-    {{ item.message }}
+    {{ item.pesan }}
   </li>
 </ul>
 ```
@@ -21,8 +21,8 @@ var example1 = new Vue({
   el: '#example-1',
   data: {
     items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
+      { pesan: 'Foo' },
+      { pesan: 'Bar' }
     ]
   }
 })
@@ -33,7 +33,7 @@ Result:
 {% raw %}
 <ul id="example-1" class="demo">
   <li v-for="item in items">
-    {{item.message}}
+    {{item.pesan}}
   </li>
 </ul>
 <script>
@@ -41,8 +41,8 @@ var example1 = new Vue({
   el: '#example-1',
   data: {
     items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
+      { pesan: 'Foo' },
+      { pesan: 'Bar' }
     ]
   },
   watch: {
@@ -54,12 +54,12 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Inside `v-for` blocks we have full access to parent scope properties. `v-for` also supports an optional second argument for the index of the current item.
+Didalam blok `v-for` kita memiliki akses penuh kepada cangkupan propery _parent_. `v-for` juga mendukung sebuah argumen opsional kedua untuk index dari item saat ini.
 
 ``` html
 <ul id="example-2">
   <li v-for="(item, index) in items">
-    {{ parentMessage }} - {{ index }} - {{ item.message }}
+    {{ pesanParent }} - {{ index }} - {{ item.pesan }}
   </li>
 </ul>
 ```
@@ -68,10 +68,10 @@ Inside `v-for` blocks we have full access to parent scope properties. `v-for` al
 var example2 = new Vue({
   el: '#example-2',
   data: {
-    parentMessage: 'Parent',
+    pesanParent: 'Parent',
     items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
+      { pesan: 'Foo' },
+      { pesan: 'Bar' }
     ]
   }
 })
@@ -82,17 +82,17 @@ Result:
 {% raw%}
 <ul id="example-2" class="demo">
   <li v-for="(item, index) in items">
-    {{ parentMessage }} - {{ index }} - {{ item.message }}
+    {{ pesanParent }} - {{ index }} - {{ item.pesan }}
   </li>
 </ul>
 <script>
 var example2 = new Vue({
   el: '#example-2',
   data: {
-    parentMessage: 'Parent',
+    PesanParent: 'Parent',
     items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
+      { pesan: 'Foo' },
+      { pesan: 'Bar' }
     ]
   },
   watch: {
@@ -104,15 +104,15 @@ var example2 = new Vue({
 </script>
 {% endraw %}
 
-You can also use `of` as the delimiter instead of `in`, so that it is closer to JavaScript's syntax for iterators:
+Kalian juga bisa menggunakan `of` sebagai pembatass sebagai pengganti `in`, supaya lebih mirip dengan sintaks dari JavaScript untuk perulangan:
 
 ``` html
 <div v-for="item of items"></div>
 ```
 
-## `v-for` with an Object
+## `v-for` dengan sebuah Objek
 
-You can also use `v-for` to iterate through the properties of an object.
+Kalian juga bisa menggunakan `v-for` untuk melakukan perulangan melalui properti dari sebuah objek.
 
 ``` html
 <ul id="v-for-object" class="demo">
@@ -157,7 +157,7 @@ new Vue({
 </script>
 {% endraw %}
 
-You can also provide a second argument for the key:
+Kalian juga dapat menyediakan sebuah argumen ke dua sebagai kunci:
 
 ``` html
 <div v-for="(value, key) in object">
@@ -185,7 +185,7 @@ new Vue({
 </script>
 {% endraw %}
 
-And another for the index:
+Dan argumen lain sebagai index:
 
 ``` html
 <div v-for="(value, key, index) in object">
@@ -213,15 +213,15 @@ new Vue({
 </script>
 {% endraw %}
 
-<p class="tip">When iterating over an object, the order is based on the key enumeration order of `Object.keys()`, which is **not** guaranteed to be consistent across JavaScript engine implementations.</p>
+<p class="tip">Ketika melakukan perulangan pada sebuah objek, urutannya berdasarkan pada urutan penomoran kunci dari `Object.keys()`, yang mana **tidak** digaransi untuk dapat konsisten pada sebagian besar implementasi mesin JavaScript.</p>
 
 ## `key`
 
-When Vue is updating a list of elements rendered with `v-for`, by default it uses an "in-place patch" strategy. If the order of the data items has changed, instead of moving the DOM elements to match the order of the items, Vue will patch each element in-place and make sure it reflects what should be rendered at that particular index. This is similar to the behavior of `track-by="$index"` in Vue 1.x.
+Ketika Vue memperbarui sebuah daftar elemen yang di-render dengan `v-for`, secara standar menggunakan sebuah strategi "_patch_ di-tempat". Jika urutan datanya berubah, dibanding memindahkan elemen DOM untuk mencocokkan urutan dari item tersebut, Vue akan melakukan patch ke setiap element di-tempat dan memastikan untuk menampilkan apa yang seharusnya di-render pada index tertentu tersebut. Hal ini mirip dengan kelakuan dari `track-by="$index"` pada Vue 1.x.
 
-This default mode is efficient, but only suitable **when your list render output does not rely on child component state or temporary DOM state (e.g. form input values)**.
+Mode standar ini efisian, tetapi hanya cocok **ketika render output daftar kalian tidak bergantung pada komponen _state_ _child_ atau state DOM sementara (contohnya nilai input formulir)**.
 
-To give Vue a hint so that it can track each node's identity, and thus reuse and reorder existing elements, you need to provide a unique `key` attribute for each item. An ideal value for `key` would be the unique id of each item. This special attribute is a rough equivalent to `track-by` in 1.x, but it works like an attribute, so you need to use `v-bind` to bind it to dynamic values (using shorthand here):
+Untuk memberikan Vue sebuah petunjuk agar dapat melacak setiap identitas node, yang kemudian menggunakan ulang dan mengurutkan kembali element yang sudah ada, kalian harus menyediakan sebuah attribut `key` yang unik untuk setiap item. Sebuah nilai ideal untuk `key` akan menjadi id unik untuk setiap item. Attribut spesial ini kurang lebih sama dengan `track-by` pada 1.x, tetapi bekerja seperti attribut, jadi kalian harus menggunakan `v-bind` untuk mengikatnya agar nilainya dinamis (disini menggunakan shorthand):
 
 ``` html
 <div v-for="item in items" :key="item.id">
@@ -229,11 +229,11 @@ To give Vue a hint so that it can track each node's identity, and thus reuse and
 </div>
 ```
 
-It is recommended to provide a `key` with `v-for` whenever possible, unless the iterated DOM content is simple, or you are intentionally relying on the default behavior for performance gains.
+Direkomendasikan untuk menyediakan sebuah `key` bersama dengan `v-for` kapanpun, kecuali konten DOM yang diperulangkan sederhana, atau kalian sengaja mengandalkan perbuatan standar untuk meningkatkan performa.
 
-Since it's a generic mechanism for Vue to identify nodes, the `key` also has other uses that are not specifically tied to `v-for`, as we will see later in the guide.
+Karena mengidentifikasi node adalah mekanisme umum untuk Vue, `key` tersebut juga memiliki kegunaan lain yang tidak dibuat khusus untuk `v-for`, yang akan kita lihat di panduan nanti.
 
-<p class="tip">Don't use non-primitive values like objects and arrays as `v-for` keys. Use string or numeric values instead.</p>
+<p class="tip">Jangan menggunakan nilai _non-primitive_ seperti objek dan array untuk kunci `v-for`. Gunakan _string_ atau nilai angka saja.</p>
 
 ## Array Change Detection
 
