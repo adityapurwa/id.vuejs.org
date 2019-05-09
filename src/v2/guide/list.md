@@ -54,7 +54,7 @@ var example1 = new Vue({
 </script>
 {% endraw %}
 
-Didalam blok `v-for` kita memiliki akses penuh kepada cangkupan propery _parent_. `v-for` juga mendukung sebuah argumen opsional kedua untuk index dari item saat ini.
+Didalam blok `v-for` kita memiliki akses penuh kepada cangkupan properti _parent_. `v-for` juga mendukung sebuah argumen opsional kedua untuk index dari item saat ini.
 
 ``` html
 <ul id="example-2">
@@ -307,7 +307,7 @@ vm.items.splice(newLength)
 
 ## Kekurangan Pendeteksi perubahan objek
 
-Karena batasan dari modern JavaScript lagi, **vue tidak bisa mendeteksi penambahan atau pengurangan property**. Contohnya:
+Karena batasan dari modern JavaScript lagi, **vue tidak bisa mendeteksi penambahan atau pengurangan properti**. Contohnya:
 
 ``` js
 var vm = new Vue({
@@ -333,7 +333,7 @@ var vm = new Vue({
 })
 ```
 
-Kalian bisa menambahkan sebuah property `age` baru ke objek yang dibungkus `userProfile` dengan:
+Kalian bisa menambahkan sebuah properti `age` baru ke objek yang dibungkus `userProfile` dengan:
 
 ``` js
 Vue.set(vm.userProfile, 'age', 27)
@@ -345,7 +345,7 @@ Kalian juga bisa menggunakan metode instansi `vm.$set` , dimana sebagai alias un
 vm.$set(vm.userProfile, 'age', 27)
 ```
 
-Terkadang kalian juga ingin menentukan angka sebagai property baru ke objek yang sudah ada, contohnya menggunakan `Object.assign()` atau `_.extend()`. Di kasus seperti ini, kalian harus membuat sebuah objek baru dengan property dari kedua objek. Jadi daripada membuat:
+Terkadang kalian juga ingin menentukan angka sebagai properti baru ke objek yang sudah ada, contohnya menggunakan `Object.assign()` atau `_.extend()`. Di kasus seperti ini, kalian harus membuat sebuah objek baru dengan properti dari kedua objek. Jadi daripada membuat:
 
 ``` js
 Object.assign(vm.userProfile, {
@@ -354,7 +354,7 @@ Object.assign(vm.userProfile, {
 })
 ```
 
-Kalian ingin menambahkan property property baru, dengan:
+Kalian ingin menambahkan properti properti baru, dengan:
 
 ``` js
 vm.userProfile = Object.assign({}, vm.userProfile, {
